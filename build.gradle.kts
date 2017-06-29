@@ -12,6 +12,10 @@ apply {
   from("gradle/dependencyUpdatesResolutionStrategy.groovy")
 }
 
+group = "com.mkobit.jenkins"
+version = "0.1.0"
+description = "Scripts to be used with initialization and other execution"
+
 tasks {
   "wrapper"(Wrapper::class) {
     gradleVersion = "4.0"
@@ -46,8 +50,8 @@ configure<JavaPluginConvention> {
   sourceSets {
     "main" {
       java.setSrcDirs(emptyList<Any>())
-      resources.setSrcDirs(emptyList<Any>())
-      groovy.setSrcDirs(listOf("src/init.groovy.d"))
+      resources.setSrcDirs(listOf("src/init.groovy.d"))
+      groovy.setSrcDirs(emptyList<Any>())
     }
     "test" {
       java.setSrcDirs(emptyList<Any>())
