@@ -47,6 +47,8 @@ val SourceSet.groovy: SourceDirectorySet
   get() = (this as HasConvention).convention.getPlugin(GroovySourceSet::class.java).groovy
 
 configure<JavaPluginConvention> {
+  sourceCompatibility = JavaVersion.VERSION_1_8
+  targetCompatibility = JavaVersion.VERSION_1_8
   sourceSets {
     "main" {
       java.setSrcDirs(emptyList<Any>())
