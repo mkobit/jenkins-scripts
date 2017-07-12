@@ -1,4 +1,4 @@
-extra["plugins"] = mapOf(
+extra["jenkinsPlugins"] = mapOf(
   "ace-editor" to "org.jenkins-ci.ui:ace-editor:1.1@jar",
   "ansicolor" to "org.jenkins-ci.plugins:ansicolor:0.5.0@jar",
   "ant" to "org.jenkins-ci.plugins:ant:1.5@jar",
