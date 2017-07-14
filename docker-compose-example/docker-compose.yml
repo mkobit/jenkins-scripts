@@ -1,0 +1,43 @@
+version: '3'
+services:
+  reverse-proxy:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    ports:
+      - '5050:80'
+    links:
+      - master
+  master:
+    build:
+      context: .
+      dockerfile: master.dockerfile
+    expose:
+      - '8080'
+    ports:
+      - '50001:50001'
+    links:
+      - agent-1
+      - agent-2
+    environment:
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false -Dhudson.security.ExtendedReadPermission=true"
+      AGENT_1: tcp://agent-1:22
+      AGENT_2: tcp://agent-2:22
+  agent-1:
+    build:
+      context: .
+      dockerfile: agent.dockerfile
+    environment:
+      JENKINS_SLAVE_SSH_PUBKEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDAPb7FNOU3FHdvZ4BsGgVx74MDq49sjuN8E2+lS6uecuFTBGtWZ34eVZlqzo6hJjnL4ZXfAO2j9WPBS01KXTu4MkSK2zv5OS18H7IlKaRBWpgwSj9RUEQjzaeE6ye/N/bRgIivueSBKB+7DsOrZ9z+jAL3vYpOkZod/LgAFqd+dpR9v1nUo0DTXqiXD+mvnhsXrl+00yd9dMJ4D1IYPoTNFDamane74neji0LnXtr+dTtSlFjYl1MCX3/MnT7A/3WECInmpqaCg9Wzdkci9/5YR88OOE16Q9QRkgZoY1zjeWX+SCPvundzcDP96B75d6+yGNYvvDJ7kMcjTiJ3Nf82iPpHgXwXA7ZRjIuOmkOryhhowuIdnUqJhC9Eu1xfpEObKX+4quUVIqfcf+enp5EGSyEHNrymAwr4vbp/MvezKWII3PmYuT20iSnug18+SeIMl2sXSJA4zrCrJoQO/VzNcAXQ4knPKJ7IZ3p5b1s20z7bHkSjP+oEJ9xO9+1jD6lIdaiaAemFp+NeZRayd9gtIRrbDJ7ZpzTJ6sNc68A250Z0W93MXZI2AojZCElcoOphdPut0v2ZJkK6/sZ1VtNjuYkh+gXwWQBr+rTpDn6bQlIDxRmQvwro5R46FFn4QoDsWUK3S4W1QRhd1asN0uyzasz96E5RlyvSXMUGZkYYHQ== docker-compose-example@example.org
+
+    expose:
+      - '22'
+  agent-2:
+    build:
+      context: .
+      dockerfile: agent.dockerfile
+    environment:
+      JENKINS_SLAVE_SSH_PUBKEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDAPb7FNOU3FHdvZ4BsGgVx74MDq49sjuN8E2+lS6uecuFTBGtWZ34eVZlqzo6hJjnL4ZXfAO2j9WPBS01KXTu4MkSK2zv5OS18H7IlKaRBWpgwSj9RUEQjzaeE6ye/N/bRgIivueSBKB+7DsOrZ9z+jAL3vYpOkZod/LgAFqd+dpR9v1nUo0DTXqiXD+mvnhsXrl+00yd9dMJ4D1IYPoTNFDamane74neji0LnXtr+dTtSlFjYl1MCX3/MnT7A/3WECInmpqaCg9Wzdkci9/5YR88OOE16Q9QRkgZoY1zjeWX+SCPvundzcDP96B75d6+yGNYvvDJ7kMcjTiJ3Nf82iPpHgXwXA7ZRjIuOmkOryhhowuIdnUqJhC9Eu1xfpEObKX+4quUVIqfcf+enp5EGSyEHNrymAwr4vbp/MvezKWII3PmYuT20iSnug18+SeIMl2sXSJA4zrCrJoQO/VzNcAXQ4knPKJ7IZ3p5b1s20z7bHkSjP+oEJ9xO9+1jD6lIdaiaAemFp+NeZRayd9gtIRrbDJ7ZpzTJ6sNc68A250Z0W93MXZI2AojZCElcoOphdPut0v2ZJkK6/sZ1VtNjuYkh+gXwWQBr+rTpDn6bQlIDxRmQvwro5R46FFn4QoDsWUK3S4W1QRhd1asN0uyzasz96E5RlyvSXMUGZkYYHQ== docker-compose-example@example.org
+
+    expose:
+      - '22'
