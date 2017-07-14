@@ -25,7 +25,9 @@ apply {
   plugin<LifecycleBasePlugin>()
 }
 
+
 tasks {
+  val composeGroup = "Docker Compose Example"
   val buildAgent by creating(DockerCliBuild::class) {
     dockerfile = file("agent.dockerfile")
   }
@@ -41,8 +43,21 @@ tasks {
 
   val buildImages by creating {
     description = "Builds Docker images for example"
-    group = "Docker Compose Example"
+    group = composeGroup
     dependsOn(buildAgent, buildMaster, buildNginx)
+  }
+
+  "dockerComposeUp"(Exec::class) {
+    description = "Runs docker-compose up"
+    group = composeGroup
+    dependsOn(buildImages)
+    commandLine("docker-compose", "up")
+  }
+
+  "dockerComposeDown"(Exec::class) {
+    description = "Runs docker-compose down"
+    group = composeGroup
+    commandLine("docker-compose", "down")
   }
 
   // TODO: use 'by getting {}' in next release of Gradle Kotlin
