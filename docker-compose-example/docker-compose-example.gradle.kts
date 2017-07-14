@@ -60,7 +60,7 @@ tasks {
     commandLine("docker-compose", "down")
   }
 
-  // TODO: use 'by getting {}' in next release of Gradle Kotlin
-  val build by this
-  build.dependsOn(buildImages)
+  "build" {
+    dependsOn(buildImages)
+  }
 }
