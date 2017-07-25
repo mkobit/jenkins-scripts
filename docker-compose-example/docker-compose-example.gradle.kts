@@ -25,6 +25,14 @@ apply {
   plugin<LifecycleBasePlugin>()
 }
 
+val initScriptConfiguration = "groovyInitScripts"
+configurations {
+  initScriptConfiguration()
+}
+
+dependencies {
+  initScriptConfiguration(project(":groovy-scripts"))
+}
 
 tasks {
   val composeGroup = "Docker Compose Example"
@@ -32,8 +40,19 @@ tasks {
     dockerfile = file("agent.dockerfile")
   }
 
+  val copyScripts by creating(Copy::class) {
+    val configuration = configurations[initScriptConfiguration]
+    dependsOn(configuration)
+    from(configuration.map { zipTree(it) }) {
+      include("**/*.groovy")
+      exclude("META-INF")
+    }
+    into("$buildDir/init.groovy.d")
+  }
+
   val buildMaster by creating(DockerCliBuild::class) {
     dockerfile = file("master.dockerfile")
+    dependsOn(copyScripts)
   }
 
   val buildNginx by creating(DockerCliBuild::class) {
