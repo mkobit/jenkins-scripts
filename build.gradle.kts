@@ -6,18 +6,17 @@ plugins {
 }
 
 apply {
-  from("gradle/jenkinsCoreLibraries.gradle.kts")
-  from("gradle/jenkinsPlugins.gradle.kts")
+  from("gradle/jenkinsDependencies.gradle.kts")
   from("gradle/dependencyUpdatesResolutionStrategy.groovy")
 }
 
 group = "com.mkobit.jenkins"
 version = "0.1.0"
-description = "Scripts to be used with initialization and other execution"
+description = "Scripts to be used with the automation and configuration of Jenkins"
 
 tasks {
   "wrapper"(Wrapper::class) {
-    gradleVersion = "4.0"
+    gradleVersion = "4.1"
   }
   "dependencyUpdates"(DependencyUpdatesTask::class) {
     val dependencyUpdatesResolutionStrategy: groovy.lang.Closure<Any?> by project.extra
@@ -30,42 +29,6 @@ allprojects {
     jcenter()
     maven {
       setUrl("https://repo.jenkins-ci.org/releases")
-    }
-  }
-}
-
-val jenkinsCoreLibraries: Map<String, String> by extra
-val jenkinsPlugins: Map<String, String> by extra
-
-val SourceSet.groovy: SourceDirectorySet
-  get() = (this as HasConvention).convention.getPlugin(GroovySourceSet::class.java).groovy
-
-project(":groovy-init-scripts") {
-  apply {
-    plugin("groovy")
-  }
-
-  dependencies {
-    compileOnly("org.codehaus.groovy:groovy-all:2.4.12")
-    (jenkinsCoreLibraries + jenkinsPlugins).forEach { _, dependency ->
-      compileOnly(dependency)
-    }
-  }
-
-  configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-    sourceSets {
-      "main" {
-        java.setSrcDirs(emptyList<Any>())
-        resources.setSrcDirs(listOf("src/init.groovy.d"))
-        groovy.setSrcDirs(emptyList<Any>())
-      }
-      "test" {
-        java.setSrcDirs(emptyList<Any>())
-        resources.setSrcDirs(emptyList<Any>())
-        groovy.setSrcDirs(emptyList<Any>())
-      }
     }
   }
 }
