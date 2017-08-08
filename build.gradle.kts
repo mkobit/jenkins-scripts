@@ -1,13 +1,25 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.gradle.api.internal.HasConvention
 
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    // TODO: load from properties or script plugin
+    classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-RC2")
+  }
+}
+
 plugins {
   id("com.github.ben-manes.versions") version "0.15.0"
+  kotlin("jvm") apply false
 }
 
 apply {
   from("gradle/jenkinsDependencies.gradle.kts")
-  from("gradle/dependencyUpdatesResolutionStrategy.groovy")
+  from("gradle/dependencyUpdatesResolutionStrategy.gradle")
+  from("gradle/junit5.gradle.kts")
 }
 
 group = "com.mkobit.jenkins"
@@ -29,6 +41,15 @@ allprojects {
     jcenter()
     maven {
       setUrl("https://repo.jenkins-ci.org/releases")
+    }
+  }
+}
+
+subprojects {
+  pluginManager.withPlugin("java") {
+    configure<JavaPluginConvention> {
+      sourceCompatibility = JavaVersion.VERSION_1_8
+      targetCompatibility = JavaVersion.VERSION_1_8
     }
   }
 }
