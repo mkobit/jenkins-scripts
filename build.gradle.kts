@@ -40,7 +40,7 @@ val jenkinsPlugins: Map<String, String> by extra
 val SourceSet.groovy: SourceDirectorySet
   get() = (this as HasConvention).convention.getPlugin(GroovySourceSet::class.java).groovy
 
-project(":groovy-scripts") {
+project(":groovy-init-scripts") {
   apply {
     plugin("groovy")
   }

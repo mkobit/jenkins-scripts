@@ -31,7 +31,7 @@ configurations {
 }
 
 dependencies {
-  initScriptConfiguration(project(":groovy-scripts"))
+  initScriptConfiguration(project(":groovy-init-scripts"))
 }
 
 tasks {
