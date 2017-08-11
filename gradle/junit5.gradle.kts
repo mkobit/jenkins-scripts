@@ -5,7 +5,9 @@ val junitVintageVersion: String by extra { "4.12.0-RC2" }
 val junit5Log4jVersion: String by extra { "2.8.2" }
 
 extra["junitTestImplementationArtifacts"] = mapOf(
-  "junit-platform-runner" to mapOf("group" to "org.junit.platform", "name" to "junit-platform-runner", "version" to "${extra["junitPlatformVersion"]}")
+  "junit-platform-runner" to mapOf("group" to "org.junit.platform", "name" to "junit-platform-runner", "version" to "${extra["junitPlatformVersion"]}"),
+  "junit-jupiter-migrationsupport" to mapOf("group" to "org.junit.jupiter", "name" to "junit-jupiter-migrationsupport", "version" to "${extra["junitJupiterVersion"]}"),
+  "junit-jupiter-api" to mapOf("group" to "org.junit.jupiter", "name" to "junit-jupiter-api", "version" to "${extra["junitJupiterVersion"]}")
 )
 
 extra["junitTestRuntimeOnlyArtifacts"] = mapOf(
