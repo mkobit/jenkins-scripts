@@ -20,7 +20,7 @@ services:
       - agent-1
       - agent-2
     environment:
-      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false -Dhudson.security.ExtendedReadPermission=true"
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false -Dhudson.security.ExtendedReadPermission=true -Dfile.encoding=UTF-8"
       AGENT_1: tcp://agent-1:22
       AGENT_2: tcp://agent-2:22
   agent-1:
