@@ -7,7 +7,7 @@ buildscript {
   }
   dependencies {
     // TODO: load from properties or script plugin
-    classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.0-RC2")
+    classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.1")
   }
 }
 
@@ -28,7 +28,7 @@ description = "Scripts to be used with the automation and configuration of Jenki
 
 tasks {
   "wrapper"(Wrapper::class) {
-    gradleVersion = "4.1"
+    gradleVersion = "4.2.1"
   }
   "dependencyUpdates"(DependencyUpdatesTask::class) {
     val dependencyUpdatesResolutionStrategy: groovy.lang.Closure<Any?> by project.extra
@@ -48,8 +48,8 @@ allprojects {
 subprojects {
   pluginManager.withPlugin("java") {
     configure<JavaPluginConvention> {
-      sourceCompatibility = JavaVersion.VERSION_1_8
-      targetCompatibility = JavaVersion.VERSION_1_8
+      sourceCompatibility = JavaVersion.VERSION_1_9
+      targetCompatibility = JavaVersion.VERSION_1_9
     }
   }
 }

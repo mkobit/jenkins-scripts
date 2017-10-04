@@ -180,7 +180,7 @@ plugins.each {
 if (!updateCenterJobs.empty) {
   logger.info("${updateCenterJobs.size()} plugins were installed, wait on each to complete installation.")
   for (job in updateCenterJobs) {
-    job.get(3, TimeUnit.MINUTES)
+    job.get(6, TimeUnit.MINUTES)
   }
   jenkins.restart()
 }

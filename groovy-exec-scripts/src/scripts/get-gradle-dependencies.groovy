@@ -61,8 +61,7 @@ final String extJenkinsCoreLibraries = '''extra["jenkinsCoreLibraries"] = mapOf(
 
 final String extJenkinsTestDependencies = '''extra["jenkinsTestDependencies"] = mapOf(
   "jenkins-test-harness" to mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-test-harness", "version" to "2.24"),
-  "jenkins-war" to mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-war", "version" to "${extra["jenkinsCoreVersion"]}"),
-  "jenkins-war-for-test" to mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-war", "version" to "${extra["jenkinsCoreVersion"]}:war-for-test@jar")
+  "jenkins-war" to mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-war", "version" to "${extra["jenkinsCoreVersion"]}", "ext" to "war")
 )'''
 
 [
