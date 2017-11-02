@@ -4,11 +4,11 @@ import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 
 plugins {
   `java`
+  kotlin("jvm")
 }
 
 apply {
   plugin("org.junit.platform.gradle.plugin")
-  plugin("org.jetbrains.kotlin.jvm")
 }
 
 val jenkinsGroovyVersion: String by rootProject.extra

@@ -1,1 +1,1 @@
-FROM jenkinsci/ssh-slave:latest
+FROM jenkins/ssh-slave:latest

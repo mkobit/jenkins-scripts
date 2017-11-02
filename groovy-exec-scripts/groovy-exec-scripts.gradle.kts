@@ -1,5 +1,5 @@
-apply {
-  plugin("groovy")
+plugins {
+  groovy
 }
 
 val jenkinsGroovyVersion: String by rootProject.extra

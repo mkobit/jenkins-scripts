@@ -12,8 +12,8 @@ buildscript {
 }
 
 plugins {
-  id("com.github.ben-manes.versions") version "0.15.0"
-  kotlin("jvm") apply false
+  id("com.github.ben-manes.versions") version "0.17.0"
+  kotlin("jvm") version "1.1.51" apply false
 }
 
 apply {
@@ -28,7 +28,7 @@ description = "Scripts to be used with the automation and configuration of Jenki
 
 tasks {
   "wrapper"(Wrapper::class) {
-    gradleVersion = "4.2.1"
+    gradleVersion = "4.3"
   }
   "dependencyUpdates"(DependencyUpdatesTask::class) {
     val dependencyUpdatesResolutionStrategy: groovy.lang.Closure<Any?> by project.extra
