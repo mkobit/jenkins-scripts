@@ -28,7 +28,7 @@ description = "Scripts to be used with the automation and configuration of Jenki
 
 tasks {
   "wrapper"(Wrapper::class) {
-    gradleVersion = "4.3"
+    gradleVersion = "4.4"
   }
   "dependencyUpdates"(DependencyUpdatesTask::class) {
     val dependencyUpdatesResolutionStrategy: groovy.lang.Closure<Any?> by project.extra
