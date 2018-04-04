@@ -1,3 +1,7 @@
+plugins {
+  `lifecycle-base`
+}
+
 open class DockerCliBuild : DefaultTask() {
 
   @get:InputFile
@@ -19,10 +23,6 @@ open class DockerCliBuild : DefaultTask() {
         project.projectDir.absolutePath)
     }.rethrowFailure().assertNormalExitValue()
   }
-}
-
-apply {
-  plugin<LifecycleBasePlugin>()
 }
 
 val initScriptConfiguration = "groovyInitScripts"
