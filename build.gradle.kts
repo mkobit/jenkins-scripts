@@ -1,16 +1,6 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.gradle.api.internal.HasConvention
 
-buildscript {
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    // TODO: load from properties or script plugin
-    classpath("org.junit.platform:junit-platform-gradle-plugin:1.0.1")
-  }
-}
-
 plugins {
   id("com.github.ben-manes.versions") version "0.17.0"
   kotlin("jvm") version "1.2.31" apply false
