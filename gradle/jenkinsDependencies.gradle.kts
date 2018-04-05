@@ -2,7 +2,7 @@ extra["jenkinsGroovyVersion"] = "2.4.11"
 
 extra["jenkinsGroovyArtifact"] = "org.codehaus.groovy:groovy-all:${extra["jenkinsGroovyVersion"]}"
 
-extra["jenkinsCoreVersion"] = "2.89.4"
+extra["jenkinsCoreVersion"] = "2.107.1"
 
 extra["jenkinsCoreArtifact"] = "org.jenkins-ci.main:jenkins-core:${extra["jenkinsCoreVersion"]}@jar"
 
@@ -44,7 +44,7 @@ extra["jenkinsPluginArtifacts"] = mapOf(
   "blueocean-rest-impl"                    to "io.jenkins.blueocean:blueocean-rest-impl:1.4.2",
   "blueocean-web"                          to "io.jenkins.blueocean:blueocean-web:1.4.2",
   "bouncycastle-api"                       to "org.jenkins-ci.plugins:bouncycastle-api:2.16.2",
-  "branch-api"                             to "org.jenkins-ci.plugins:branch-api:2.0.18",
+  "branch-api"                             to "org.jenkins-ci.plugins:branch-api:2.0.19",
   "build-timeout"                          to "org.jenkins-ci.plugins:build-timeout:1.19",
   "cloudbees-bitbucket-branch-source"      to "org.jenkins-ci.plugins:cloudbees-bitbucket-branch-source:2.2.10",
   "cloudbees-folder"                       to "org.jenkins-ci.plugins:cloudbees-folder:6.4",

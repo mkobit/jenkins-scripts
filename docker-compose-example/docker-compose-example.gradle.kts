@@ -70,7 +70,7 @@ tasks {
     description = "Runs docker-compose up"
     group = composeGroup
     dependsOn(buildImages)
-    commandLine("docker-compose", "up")
+    commandLine("docker-compose", "up", "--build")
   }
 
   "dockerComposeDown"(Exec::class) {
