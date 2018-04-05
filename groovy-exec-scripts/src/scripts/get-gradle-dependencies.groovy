@@ -21,6 +21,19 @@ Collector<CharSequence, ?, String> kotlinExtListOfCollector(String extKeyword) {
   return kotlinExtCollector('listOf', extKeyword)
 }
 
+String formatPluginDependencies(final List<String> pluginDependencies) {
+  String setOfOutput
+  if (pluginDependencies.isEmpty()) {
+    setOfOutput = 'setOf()'
+  } else {
+    setOfOutput = pluginDependencies.stream()
+                                    .map { "      \"$it\""}
+                                    .collect(Collectors.joining(',' + System.lineSeparator(), 'setOf(' + System.lineSeparator(), System.lineSeparator() + '  )'))
+  }
+
+  return setOfOutput
+}
+
 final List<Map<String, Object>> pluginArtifacts = Jenkins.instance.pluginManager.plugins.collect {
   it.manifest.mainAttributes
 }.collect {
@@ -36,13 +49,12 @@ final List<Map<String, Object>> pluginArtifacts = Jenkins.instance.pluginManager
 }
 final String extJenkinsPluginArtifacts = pluginArtifacts.stream()
                                                  .sorted(Comparator.comparing({ it.name }))
-                                                 .map { """  "${it.name}" to mapOf("group" to "${it.group}", "name" to "${it.name}", "version" to "${it.version}")""" }
+                                                 .map { String.format('''  %-40s to "%s:%s:%s"''', "\"${it.name}\"", it.group, it.name, it.version) }
                                                  .collect(kotlinExtMapOfCollector('jenkinsPluginArtifacts'))
 
 
 final String extPluginDependencies = pluginArtifacts.stream().sorted(Comparator.comparing({ it.name }))
-                                                 .map {"\"${it.name}\" to ${(it.pluginDependencies as List<String>).stream().map { "\"$it\""}.collect(Collectors.joining(', ', 'setOf(', ')'))}"}
-                                                 .map { "  $it"}
+                                                 .map { String.format('  %s to %s', "\"${it.name}\"", formatPluginDependencies(it.pluginDependencies as List<String>)) }
                                                  .collect(kotlinExtMapOfCollector('jenkinsPluginDependencies'))
 
 final String jenkinsVersion = Jenkins.instance.VERSION
@@ -51,17 +63,18 @@ final String groovyVersion = GroovySystem.version
 final String extJenkinsCoreVersion = """extra["jenkinsCoreVersion"] = "$jenkinsVersion\""""
 final String extJenkinsGroovyVersion = """extra["jenkinsGroovyVersion"] = "$groovyVersion\""""
 
-final String extJenkinsCoreArtifact = '''extra["jenkinsCoreArtifact"] = mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-core", "version" to "${extra["jenkinsCoreVersion"]}", "ext" to "jar")'''
-final String extJenkinsGroovyArtifact = '''extra["jenkinsGroovyArtifact"] = mapOf("group" to "org.codehaus.groovy", "name" to "groovy", "version" to "${extra["jenkinsGroovyVersion"]}")'''
+final String extJenkinsCoreArtifact = '''extra["jenkinsCoreArtifact"] = "org.jenkins-ci.main:jenkins-core:${extra["jenkinsCoreVersion"]}@jar"'''
+final String extJenkinsGroovyArtifact = '''extra["jenkinsGroovyArtifact"] = "org.codehaus.groovy:groovy-all:${extra["jenkinsGroovyVersion"]}"'''
 
 final String extJenkinsCoreLibraries = '''extra["jenkinsCoreLibraries"] = mapOf(
-  "ssh-cli-auth" to mapOf("group" to "org.jenkins-ci.modules", "name" to "ssh-cli-auth", "version" to "1.4"),
-  "sshd" to mapOf("group" to "org.jenkins-ci.modules", "name" to "sshd", "version" to "1.11")
+  "instance-identity" to "org.jenkins-ci.modules:instance-identity:2.1",
+  "ssh-cli-auth" to "org.jenkins-ci.modules:ssh-cli-auth:1.4",
+  "sshd" to "org.jenkins-ci.modules:sshd:2.4"
 )'''
 
 final String extJenkinsTestDependencies = '''extra["jenkinsTestDependencies"] = mapOf(
-  "jenkins-test-harness" to mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-test-harness", "version" to "2.24"),
-  "jenkins-war" to mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-war", "version" to "${extra["jenkinsCoreVersion"]}", "ext" to "war")
+  "jenkins-test-harness" to "org.jenkins-ci.main:jenkins-test-harness:2.24",
+  "jenkins-war" to "org.jenkins-ci.main:jenkins-war:${extra["jenkinsCoreVersion"]}@war"
 )'''
 
 [

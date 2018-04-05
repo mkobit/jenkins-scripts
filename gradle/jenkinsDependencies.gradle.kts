@@ -1,291 +1,699 @@
 extra["jenkinsGroovyVersion"] = "2.4.11"
 
-extra["jenkinsGroovyArtifact"] = mapOf("group" to "org.codehaus.groovy", "name" to "groovy", "version" to "${extra["jenkinsGroovyVersion"]}")
+extra["jenkinsGroovyArtifact"] = "org.codehaus.groovy:groovy-all:${extra["jenkinsGroovyVersion"]}"
 
-extra["jenkinsCoreVersion"] = "2.73.1"
+extra["jenkinsCoreVersion"] = "2.89.4"
 
-extra["jenkinsCoreArtifact"] = mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-core", "version" to "${extra["jenkinsCoreVersion"]}", "ext" to "jar")
+extra["jenkinsCoreArtifact"] = "org.jenkins-ci.main:jenkins-core:${extra["jenkinsCoreVersion"]}@jar"
 
 extra["jenkinsCoreLibraries"] = mapOf(
-  "ssh-cli-auth" to mapOf("group" to "org.jenkins-ci.modules", "name" to "ssh-cli-auth", "version" to "1.4"),
-  "sshd" to mapOf("group" to "org.jenkins-ci.modules", "name" to "sshd", "version" to "1.11")
+  "instance-identity" to "org.jenkins-ci.modules:instance-identity:2.1",
+  "ssh-cli-auth" to "org.jenkins-ci.modules:ssh-cli-auth:1.4",
+  "sshd" to "org.jenkins-ci.modules:sshd:2.4"
 )
 
 extra["jenkinsTestDependencies"] = mapOf(
-  "jenkins-test-harness" to mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-test-harness", "version" to "2.24"),
-  "jenkins-war" to mapOf("group" to "org.jenkins-ci.main", "name" to "jenkins-war", "version" to "${extra["jenkinsCoreVersion"]}", "ext" to "war")
+  "jenkins-test-harness" to "org.jenkins-ci.main:jenkins-test-harness:2.24",
+  "jenkins-war" to "org.jenkins-ci.main:jenkins-war:${extra["jenkinsCoreVersion"]}@war"
 )
 
 extra["jenkinsPluginArtifacts"] = mapOf(
-  "ace-editor" to mapOf("group" to "org.jenkins-ci.ui", "name" to "ace-editor", "version" to "1.1"),
-  "ansicolor" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "ansicolor", "version" to "0.5.2"),
-  "ant" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "ant", "version" to "1.7"),
-  "antisamy-markup-formatter" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "antisamy-markup-formatter", "version" to "1.5"),
-  "apache-httpcomponents-client-4-api" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "apache-httpcomponents-client-4-api", "version" to "4.5.3-2.0"),
-  "authentication-tokens" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "authentication-tokens", "version" to "1.3"),
-  "blueocean" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean", "version" to "1.3.1"),
-  "blueocean-autofavorite" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "blueocean-autofavorite", "version" to "1.0.0"),
-  "blueocean-bitbucket-pipeline" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-bitbucket-pipeline", "version" to "1.3.1"),
-  "blueocean-commons" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-commons", "version" to "1.3.1"),
-  "blueocean-config" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-config", "version" to "1.3.1"),
-  "blueocean-dashboard" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-dashboard", "version" to "1.3.1"),
-  "blueocean-display-url" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "blueocean-display-url", "version" to "2.1.1"),
-  "blueocean-events" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-events", "version" to "1.3.1"),
-  "blueocean-git-pipeline" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-git-pipeline", "version" to "1.3.1"),
-  "blueocean-github-pipeline" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-github-pipeline", "version" to "1.3.1"),
-  "blueocean-i18n" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-i18n", "version" to "1.3.1"),
-  "blueocean-jira" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-jira", "version" to "1.3.1"),
-  "blueocean-jwt" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-jwt", "version" to "1.3.1"),
-  "blueocean-personalization" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-personalization", "version" to "1.3.1"),
-  "blueocean-pipeline-api-impl" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-pipeline-api-impl", "version" to "1.3.1"),
-  "blueocean-pipeline-editor" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-pipeline-editor", "version" to "1.3.1"),
-  "blueocean-pipeline-scm-api" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-pipeline-scm-api", "version" to "1.3.1"),
-  "blueocean-rest" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-rest", "version" to "1.3.1"),
-  "blueocean-rest-impl" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-rest-impl", "version" to "1.3.1"),
-  "blueocean-web" to mapOf("group" to "io.jenkins.blueocean", "name" to "blueocean-web", "version" to "1.3.1"),
-  "bootstrap" to mapOf("group" to "org.jenkins-ci.ui", "name" to "bootstrap", "version" to "1.3.2"),
-  "bouncycastle-api" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "bouncycastle-api", "version" to "2.16.2"),
-  "branch-api" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "branch-api", "version" to "2.0.15"),
-  "build-blocker-plugin" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "build-blocker-plugin", "version" to "1.7.3"),
-  "build-name-setter" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "build-name-setter", "version" to "1.6.7"),
-  "build-timeout" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "build-timeout", "version" to "1.19"),
-  "cloudbees-bitbucket-branch-source" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "cloudbees-bitbucket-branch-source", "version" to "2.2.5"),
-  "cloudbees-folder" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "cloudbees-folder", "version" to "6.2.1"),
-  "conditional-buildstep" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "conditional-buildstep", "version" to "1.3.6"),
-  "config-file-provider" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "config-file-provider", "version" to "2.16.4"),
-  "copyartifact" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "copyartifact", "version" to "1.39"),
-  "credentials" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "credentials", "version" to "2.1.16"),
-  "credentials-binding" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "credentials-binding", "version" to "1.13"),
-  "display-url-api" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "display-url-api", "version" to "2.1.0"),
-  "docker-build-publish" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "docker-build-publish", "version" to "1.3.2"),
-  "docker-build-step" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "docker-build-step", "version" to "1.43"),
-  "docker-commons" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "docker-commons", "version" to "1.9"),
-  "docker-custom-build-environment" to mapOf("group" to "com.cloudbees.jenkins.plugins", "name" to "docker-custom-build-environment", "version" to "1.6.5"),
-  "docker-workflow" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "docker-workflow", "version" to "1.14"),
-  "durable-task" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "durable-task", "version" to "1.15"),
-  "email-ext" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "email-ext", "version" to "2.61"),
-  "extended-choice-parameter" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "extended-choice-parameter", "version" to "0.76"),
-  "external-monitor-job" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "external-monitor-job", "version" to "1.7"),
-  "favorite" to mapOf("group" to "org.jvnet.hudson.plugins", "name" to "favorite", "version" to "2.3.1"),
-  "flexible-publish" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "flexible-publish", "version" to "0.15.2"),
-  "gatling" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "gatling", "version" to "1.2.2"),
-  "git" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "git", "version" to "3.6.3"),
-  "git-client" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "git-client", "version" to "2.6.0"),
-  "git-server" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "git-server", "version" to "1.7"),
-  "github" to mapOf("group" to "com.coravy.hudson.plugins.github", "name" to "github", "version" to "1.28.1"),
-  "github-api" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "github-api", "version" to "1.90"),
-  "github-branch-source" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "github-branch-source", "version" to "2.2.5"),
-  "github-organization-folder" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "github-organization-folder", "version" to "1.6"),
-  "greenballs" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "greenballs", "version" to "1.15"),
-  "handlebars" to mapOf("group" to "org.jenkins-ci.ui", "name" to "handlebars", "version" to "1.1.1"),
-  "htmlpublisher" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "htmlpublisher", "version" to "1.14"),
-  "icon-shim" to mapOf("group" to "org.jenkins-ci.plugins.icon-shim", "name" to "icon-shim", "version" to "2.0.3"),
-  "jackson2-api" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "jackson2-api", "version" to "2.8.7.0"),
-  "javadoc" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "javadoc", "version" to "1.4"),
-  "jira" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "jira", "version" to "2.4.2"),
-  "job-dsl" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "job-dsl", "version" to "1.66"),
-  "job-restrictions" to mapOf("group" to "com.synopsys.arc.jenkinsci.plugins", "name" to "job-restrictions", "version" to "0.6"),
-  "jobConfigHistory" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "jobConfigHistory", "version" to "2.18"),
-  "jquery" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "jquery", "version" to "1.12.4-0"),
-  "jquery-detached" to mapOf("group" to "org.jenkins-ci.ui", "name" to "jquery-detached", "version" to "1.2.1"),
-  "jsch" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "jsch", "version" to "0.1.54.1"),
-  "junit" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "junit", "version" to "1.21"),
-  "ldap" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "ldap", "version" to "1.17"),
-  "lockable-resources" to mapOf("group" to "org.6wind.jenkins", "name" to "lockable-resources", "version" to "2.0"),
-  "mailer" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "mailer", "version" to "1.20"),
-  "managed-scripts" to mapOf("group" to "org.jenkinsci.plugins", "name" to "managed-scripts", "version" to "1.4"),
-  "mapdb-api" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "mapdb-api", "version" to "1.0.9.0"),
-  "matrix-auth" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "matrix-auth", "version" to "2.1"),
-  "matrix-project" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "matrix-project", "version" to "1.12"),
-  "maven-plugin" to mapOf("group" to "org.jenkins-ci.main", "name" to "maven-plugin", "version" to "3.0"),
-  "mercurial" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "mercurial", "version" to "2.2"),
-  "metrics" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "metrics", "version" to "3.1.2.10"),
-  "momentjs" to mapOf("group" to "org.jenkins-ci.ui", "name" to "momentjs", "version" to "1.1.1"),
-  "multiple-scms" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "multiple-scms", "version" to "0.6"),
-  "pam-auth" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pam-auth", "version" to "1.3"),
-  "parameterized-trigger" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "parameterized-trigger", "version" to "2.35.2"),
-  "pipeline-build-step" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pipeline-build-step", "version" to "2.5.1"),
-  "pipeline-github-lib" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pipeline-github-lib", "version" to "1.0"),
-  "pipeline-graph-analysis" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pipeline-graph-analysis", "version" to "1.5"),
-  "pipeline-input-step" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pipeline-input-step", "version" to "2.8"),
-  "pipeline-milestone-step" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pipeline-milestone-step", "version" to "1.3.1"),
-  "pipeline-model-api" to mapOf("group" to "org.jenkinsci.plugins", "name" to "pipeline-model-api", "version" to "1.2.2"),
-  "pipeline-model-declarative-agent" to mapOf("group" to "org.jenkinsci.plugins", "name" to "pipeline-model-declarative-agent", "version" to "1.1.1"),
-  "pipeline-model-definition" to mapOf("group" to "org.jenkinsci.plugins", "name" to "pipeline-model-definition", "version" to "1.2.2"),
-  "pipeline-model-extensions" to mapOf("group" to "org.jenkinsci.plugins", "name" to "pipeline-model-extensions", "version" to "1.2.2"),
-  "pipeline-rest-api" to mapOf("group" to "org.jenkins-ci.plugins.pipeline-stage-view", "name" to "pipeline-rest-api", "version" to "2.9"),
-  "pipeline-stage-step" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pipeline-stage-step", "version" to "2.2"),
-  "pipeline-stage-tags-metadata" to mapOf("group" to "org.jenkinsci.plugins", "name" to "pipeline-stage-tags-metadata", "version" to "1.2.2"),
-  "pipeline-stage-view" to mapOf("group" to "org.jenkins-ci.plugins.pipeline-stage-view", "name" to "pipeline-stage-view", "version" to "2.9"),
-  "pipeline-utility-steps" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pipeline-utility-steps", "version" to "1.5.1"),
-  "plain-credentials" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "plain-credentials", "version" to "1.4"),
-  "promoted-builds" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "promoted-builds", "version" to "2.31"),
-  "pubsub-light" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "pubsub-light", "version" to "1.12"),
-  "python" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "python", "version" to "1.3"),
-  "rebuild" to mapOf("group" to "com.sonyericsson.hudson.plugins.rebuild", "name" to "rebuild", "version" to "1.27"),
-  "resource-disposer" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "resource-disposer", "version" to "0.8"),
-  "run-condition" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "run-condition", "version" to "1.0"),
-  "scm-api" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "scm-api", "version" to "2.2.4"),
-  "script-security" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "script-security", "version" to "1.34"),
-  "sse-gateway" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "sse-gateway", "version" to "1.15"),
-  "ssh-agent" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "ssh-agent", "version" to "1.15"),
-  "ssh-credentials" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "ssh-credentials", "version" to "1.13"),
-  "ssh-slaves" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "ssh-slaves", "version" to "1.22"),
-  "stash-pullrequest-builder" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "stash-pullrequest-builder", "version" to "1.7.0"),
-  "structs" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "structs", "version" to "1.10"),
-  "subversion" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "subversion", "version" to "2.9"),
-  "throttle-concurrents" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "throttle-concurrents", "version" to "2.0.1"),
-  "timestamper" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "timestamper", "version" to "1.8.8"),
-  "token-macro" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "token-macro", "version" to "2.3"),
-  "variant" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "variant", "version" to "1.1"),
-  "windows-slaves" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "windows-slaves", "version" to "1.3.1"),
-  "workflow-aggregator" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-aggregator", "version" to "2.5"),
-  "workflow-api" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-api", "version" to "2.23.1"),
-  "workflow-basic-steps" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-basic-steps", "version" to "2.6"),
-  "workflow-cps" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-cps", "version" to "2.41"),
-  "workflow-cps-global-lib" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-cps-global-lib", "version" to "2.9"),
-  "workflow-durable-task-step" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-durable-task-step", "version" to "2.17"),
-  "workflow-job" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-job", "version" to "2.15"),
-  "workflow-multibranch" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-multibranch", "version" to "2.16"),
-  "workflow-scm-step" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-scm-step", "version" to "2.6"),
-  "workflow-step-api" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-step-api", "version" to "2.13"),
-  "workflow-support" to mapOf("group" to "org.jenkins-ci.plugins.workflow", "name" to "workflow-support", "version" to "2.16"),
-  "ws-cleanup" to mapOf("group" to "org.jenkins-ci.plugins", "name" to "ws-cleanup", "version" to "0.34")
+  "ace-editor"                             to "org.jenkins-ci.ui:ace-editor:1.1",
+  "antisamy-markup-formatter"              to "org.jenkins-ci.plugins:antisamy-markup-formatter:1.5",
+  "apache-httpcomponents-client-4-api"     to "org.jenkins-ci.plugins:apache-httpcomponents-client-4-api:4.5.3-2.1",
+  "authentication-tokens"                  to "org.jenkins-ci.plugins:authentication-tokens:1.3",
+  "blueocean"                              to "io.jenkins.blueocean:blueocean:1.4.2",
+  "blueocean-autofavorite"                 to "org.jenkins-ci.plugins:blueocean-autofavorite:1.2.2",
+  "blueocean-bitbucket-pipeline"           to "io.jenkins.blueocean:blueocean-bitbucket-pipeline:1.4.2",
+  "blueocean-commons"                      to "io.jenkins.blueocean:blueocean-commons:1.4.2",
+  "blueocean-config"                       to "io.jenkins.blueocean:blueocean-config:1.4.2",
+  "blueocean-core-js"                      to "io.jenkins.blueocean:blueocean-core-js:1.4.2",
+  "blueocean-dashboard"                    to "io.jenkins.blueocean:blueocean-dashboard:1.4.2",
+  "blueocean-display-url"                  to "org.jenkins-ci.plugins:blueocean-display-url:2.2.0",
+  "blueocean-events"                       to "io.jenkins.blueocean:blueocean-events:1.4.2",
+  "blueocean-git-pipeline"                 to "io.jenkins.blueocean:blueocean-git-pipeline:1.4.2",
+  "blueocean-github-pipeline"              to "io.jenkins.blueocean:blueocean-github-pipeline:1.4.2",
+  "blueocean-i18n"                         to "io.jenkins.blueocean:blueocean-i18n:1.4.2",
+  "blueocean-jira"                         to "io.jenkins.blueocean:blueocean-jira:1.4.2",
+  "blueocean-jwt"                          to "io.jenkins.blueocean:blueocean-jwt:1.4.2",
+  "blueocean-personalization"              to "io.jenkins.blueocean:blueocean-personalization:1.4.2",
+  "blueocean-pipeline-api-impl"            to "io.jenkins.blueocean:blueocean-pipeline-api-impl:1.4.2",
+  "blueocean-pipeline-editor"              to "io.jenkins.blueocean:blueocean-pipeline-editor:1.4.2",
+  "blueocean-pipeline-scm-api"             to "io.jenkins.blueocean:blueocean-pipeline-scm-api:1.4.2",
+  "blueocean-rest"                         to "io.jenkins.blueocean:blueocean-rest:1.4.2",
+  "blueocean-rest-impl"                    to "io.jenkins.blueocean:blueocean-rest-impl:1.4.2",
+  "blueocean-web"                          to "io.jenkins.blueocean:blueocean-web:1.4.2",
+  "bouncycastle-api"                       to "org.jenkins-ci.plugins:bouncycastle-api:2.16.2",
+  "branch-api"                             to "org.jenkins-ci.plugins:branch-api:2.0.18",
+  "build-timeout"                          to "org.jenkins-ci.plugins:build-timeout:1.19",
+  "cloudbees-bitbucket-branch-source"      to "org.jenkins-ci.plugins:cloudbees-bitbucket-branch-source:2.2.10",
+  "cloudbees-folder"                       to "org.jenkins-ci.plugins:cloudbees-folder:6.4",
+  "command-launcher"                       to "org.jenkins-ci.plugins:command-launcher:1.2",
+  "config-file-provider"                   to "org.jenkins-ci.plugins:config-file-provider:2.18",
+  "credentials"                            to "org.jenkins-ci.plugins:credentials:2.1.16",
+  "credentials-binding"                    to "org.jenkins-ci.plugins:credentials-binding:1.16",
+  "display-url-api"                        to "org.jenkins-ci.plugins:display-url-api:2.2.0",
+  "docker-commons"                         to "org.jenkins-ci.plugins:docker-commons:1.11",
+  "docker-workflow"                        to "org.jenkins-ci.plugins:docker-workflow:1.15.1",
+  "durable-task"                           to "org.jenkins-ci.plugins:durable-task:1.22",
+  "email-ext"                              to "org.jenkins-ci.plugins:email-ext:2.62",
+  "external-monitor-job"                   to "org.jenkins-ci.plugins:external-monitor-job:1.7",
+  "favorite"                               to "org.jvnet.hudson.plugins:favorite:2.3.1",
+  "git"                                    to "org.jenkins-ci.plugins:git:3.8.0",
+  "git-client"                             to "org.jenkins-ci.plugins:git-client:2.7.1",
+  "git-server"                             to "org.jenkins-ci.plugins:git-server:1.7",
+  "github"                                 to "com.coravy.hudson.plugins.github:github:1.29.0",
+  "github-api"                             to "org.jenkins-ci.plugins:github-api:1.90",
+  "github-branch-source"                   to "org.jenkins-ci.plugins:github-branch-source:2.3.3",
+  "handlebars"                             to "org.jenkins-ci.ui:handlebars:1.1.1",
+  "handy-uri-templates-2-api"              to "org.jenkins-ci.plugins:handy-uri-templates-2-api:2.1.6-1.0",
+  "htmlpublisher"                          to "org.jenkins-ci.plugins:htmlpublisher:1.15",
+  "jackson2-api"                           to "org.jenkins-ci.plugins:jackson2-api:2.8.11.1",
+  "jenkins-design-language"                to "io.jenkins.blueocean:jenkins-design-language:1.4.2",
+  "jira"                                   to "org.jenkins-ci.plugins:jira:2.5",
+  "job-dsl"                                to "org.jenkins-ci.plugins:job-dsl:1.68",
+  "jquery-detached"                        to "org.jenkins-ci.ui:jquery-detached:1.2.1",
+  "jsch"                                   to "org.jenkins-ci.plugins:jsch:0.1.54.2",
+  "junit"                                  to "org.jenkins-ci.plugins:junit:1.24",
+  "kubernetes"                             to "org.csanchez.jenkins.plugins:kubernetes:1.5",
+  "kubernetes-credentials"                 to "org.jenkinsci.plugins:kubernetes-credentials:0.3.1",
+  "ldap"                                   to "org.jenkins-ci.plugins:ldap:1.20",
+  "lockable-resources"                     to "org.6wind.jenkins:lockable-resources:2.2",
+  "mailer"                                 to "org.jenkins-ci.plugins:mailer:1.21",
+  "mapdb-api"                              to "org.jenkins-ci.plugins:mapdb-api:1.0.9.0",
+  "matrix-auth"                            to "org.jenkins-ci.plugins:matrix-auth:2.2",
+  "matrix-project"                         to "org.jenkins-ci.plugins:matrix-project:1.12",
+  "mercurial"                              to "org.jenkins-ci.plugins:mercurial:2.3",
+  "momentjs"                               to "org.jenkins-ci.ui:momentjs:1.1.1",
+  "pam-auth"                               to "org.jenkins-ci.plugins:pam-auth:1.3",
+  "pipeline-build-step"                    to "org.jenkins-ci.plugins:pipeline-build-step:2.7",
+  "pipeline-github-lib"                    to "org.jenkins-ci.plugins:pipeline-github-lib:1.0",
+  "pipeline-graph-analysis"                to "org.jenkins-ci.plugins:pipeline-graph-analysis:1.6",
+  "pipeline-input-step"                    to "org.jenkins-ci.plugins:pipeline-input-step:2.8",
+  "pipeline-milestone-step"                to "org.jenkins-ci.plugins:pipeline-milestone-step:1.3.1",
+  "pipeline-model-api"                     to "org.jenkinsci.plugins:pipeline-model-api:1.2.7",
+  "pipeline-model-declarative-agent"       to "org.jenkinsci.plugins:pipeline-model-declarative-agent:1.1.1",
+  "pipeline-model-definition"              to "org.jenkinsci.plugins:pipeline-model-definition:1.2.7",
+  "pipeline-model-extensions"              to "org.jenkinsci.plugins:pipeline-model-extensions:1.2.7",
+  "pipeline-rest-api"                      to "org.jenkins-ci.plugins.pipeline-stage-view:pipeline-rest-api:2.10",
+  "pipeline-stage-step"                    to "org.jenkins-ci.plugins:pipeline-stage-step:2.3",
+  "pipeline-stage-tags-metadata"           to "org.jenkinsci.plugins:pipeline-stage-tags-metadata:1.2.7",
+  "pipeline-stage-view"                    to "org.jenkins-ci.plugins.pipeline-stage-view:pipeline-stage-view:2.10",
+  "plain-credentials"                      to "org.jenkins-ci.plugins:plain-credentials:1.4",
+  "pubsub-light"                           to "org.jenkins-ci.plugins:pubsub-light:1.12",
+  "resource-disposer"                      to "org.jenkins-ci.plugins:resource-disposer:0.8",
+  "scm-api"                                to "org.jenkins-ci.plugins:scm-api:2.2.6",
+  "script-security"                        to "org.jenkins-ci.plugins:script-security:1.43",
+  "sse-gateway"                            to "org.jenkins-ci.plugins:sse-gateway:1.15",
+  "ssh-agent"                              to "org.jenkins-ci.plugins:ssh-agent:1.15",
+  "ssh-credentials"                        to "org.jenkins-ci.plugins:ssh-credentials:1.13",
+  "ssh-slaves"                             to "org.jenkins-ci.plugins:ssh-slaves:1.26",
+  "structs"                                to "org.jenkins-ci.plugins:structs:1.14",
+  "subversion"                             to "org.jenkins-ci.plugins:subversion:2.10.5",
+  "timestamper"                            to "org.jenkins-ci.plugins:timestamper:1.8.9",
+  "token-macro"                            to "org.jenkins-ci.plugins:token-macro:2.4",
+  "variant"                                to "org.jenkins-ci.plugins:variant:1.1",
+  "workflow-aggregator"                    to "org.jenkins-ci.plugins.workflow:workflow-aggregator:2.5",
+  "workflow-api"                           to "org.jenkins-ci.plugins.workflow:workflow-api:2.26",
+  "workflow-basic-steps"                   to "org.jenkins-ci.plugins.workflow:workflow-basic-steps:2.6",
+  "workflow-cps"                           to "org.jenkins-ci.plugins.workflow:workflow-cps:2.45",
+  "workflow-cps-global-lib"                to "org.jenkins-ci.plugins.workflow:workflow-cps-global-lib:2.9",
+  "workflow-durable-task-step"             to "org.jenkins-ci.plugins.workflow:workflow-durable-task-step:2.19",
+  "workflow-job"                           to "org.jenkins-ci.plugins.workflow:workflow-job:2.17",
+  "workflow-multibranch"                   to "org.jenkins-ci.plugins.workflow:workflow-multibranch:2.17",
+  "workflow-scm-step"                      to "org.jenkins-ci.plugins.workflow:workflow-scm-step:2.6",
+  "workflow-step-api"                      to "org.jenkins-ci.plugins.workflow:workflow-step-api:2.14",
+  "workflow-support"                       to "org.jenkins-ci.plugins.workflow:workflow-support:2.18",
+  "ws-cleanup"                             to "org.jenkins-ci.plugins:ws-cleanup:0.34"
 )
 
 extra["jenkinsPluginDependencies"] = mapOf(
   "ace-editor" to setOf(),
-  "ansicolor" to setOf("workflow-step-api"),
-  "ant" to setOf("structs"),
   "antisamy-markup-formatter" to setOf(),
   "apache-httpcomponents-client-4-api" to setOf(),
-  "authentication-tokens" to setOf("credentials"),
-  "blueocean" to setOf("blueocean-bitbucket-pipeline", "blueocean-commons", "blueocean-config", "blueocean-dashboard", "blueocean-events", "blueocean-git-pipeline", "blueocean-github-pipeline", "blueocean-i18n", "blueocean-jira", "blueocean-jwt", "blueocean-personalization", "blueocean-pipeline-api-impl", "blueocean-pipeline-editor", "blueocean-rest-impl", "blueocean-rest", "blueocean-web", "blueocean-autofavorite", "blueocean-display-url", "pipeline-build-step", "pipeline-milestone-step"),
-  "blueocean-autofavorite" to setOf("workflow-job", "branch-api", "git", "favorite"),
-  "blueocean-bitbucket-pipeline" to setOf("blueocean-pipeline-api-impl", "cloudbees-bitbucket-branch-source", "pubsub-light"),
+  "authentication-tokens" to setOf(
+    "credentials"
+  ),
+  "blueocean" to setOf(
+    "blueocean-bitbucket-pipeline",
+    "blueocean-commons",
+    "blueocean-config",
+    "blueocean-core-js",
+    "blueocean-dashboard",
+    "blueocean-events",
+    "blueocean-git-pipeline",
+    "blueocean-github-pipeline",
+    "blueocean-i18n",
+    "blueocean-jira",
+    "blueocean-jwt",
+    "blueocean-personalization",
+    "blueocean-pipeline-api-impl",
+    "blueocean-pipeline-editor",
+    "blueocean-rest-impl",
+    "blueocean-rest",
+    "blueocean-web",
+    "jenkins-design-language",
+    "blueocean-autofavorite",
+    "blueocean-display-url",
+    "pipeline-build-step",
+    "pipeline-milestone-step"
+  ),
+  "blueocean-autofavorite" to setOf(
+    "workflow-api",
+    "workflow-job",
+    "branch-api",
+    "git",
+    "junit",
+    "favorite"
+  ),
+  "blueocean-bitbucket-pipeline" to setOf(
+    "blueocean-pipeline-api-impl",
+    "cloudbees-bitbucket-branch-source",
+    "pubsub-light"
+  ),
   "blueocean-commons" to setOf(),
-  "blueocean-config" to setOf("blueocean-commons", "blueocean-jwt", "blueocean-rest", "blueocean-web"),
-  "blueocean-dashboard" to setOf(),
-  "blueocean-display-url" to setOf("display-url-api", "scm-api", "workflow-multibranch", "workflow-job", "blueocean-rest"),
-  "blueocean-events" to setOf("blueocean-pipeline-api-impl", "pubsub-light", "sse-gateway"),
-  "blueocean-git-pipeline" to setOf("blueocean-pipeline-api-impl", "blueocean-pipeline-scm-api", "git"),
-  "blueocean-github-pipeline" to setOf("blueocean-pipeline-api-impl", "github-api", "github-branch-source", "jackson2-api", "pubsub-light"),
-  "blueocean-i18n" to setOf("blueocean-rest"),
-  "blueocean-jira" to setOf("blueocean-rest", "jira"),
-  "blueocean-jwt" to setOf("blueocean-commons", "mailer"),
-  "blueocean-personalization" to setOf(),
-  "blueocean-pipeline-api-impl" to setOf("blueocean-pipeline-scm-api", "blueocean-rest-impl", "workflow-api", "workflow-cps", "workflow-durable-task-step", "workflow-job", "workflow-multibranch", "workflow-step-api", "workflow-support", "branch-api", "credentials", "git", "github-branch-source", "htmlpublisher", "pipeline-graph-analysis", "pipeline-input-step", "pipeline-stage-step", "plain-credentials", "scm-api", "pipeline-model-definition"),
-  "blueocean-pipeline-editor" to setOf("blueocean-commons", "blueocean-pipeline-api-impl", "blueocean-rest", "blueocean-web", "pipeline-model-definition"),
-  "blueocean-pipeline-scm-api" to setOf("blueocean-rest", "workflow-multibranch", "branch-api", "credentials", "pubsub-light"),
-  "blueocean-rest" to setOf("blueocean-commons"),
-  "blueocean-rest-impl" to setOf("blueocean-jwt", "blueocean-rest", "blueocean-web", "cloudbees-folder", "credentials", "display-url-api", "junit", "mailer", "favorite"),
-  "blueocean-web" to setOf("blueocean-rest", "variant"),
-  "bootstrap" to setOf("jquery-detached"),
+  "blueocean-config" to setOf(
+    "blueocean-commons",
+    "blueocean-jwt",
+    "blueocean-rest",
+    "blueocean-web"
+  ),
+  "blueocean-core-js" to setOf(
+    "jenkins-design-language"
+  ),
+  "blueocean-dashboard" to setOf(
+    "blueocean-web"
+  ),
+  "blueocean-display-url" to setOf(
+    "workflow-job",
+    "workflow-multibranch",
+    "scm-api",
+    "display-url-api",
+    "blueocean-rest"
+  ),
+  "blueocean-events" to setOf(
+    "blueocean-pipeline-api-impl",
+    "pubsub-light",
+    "sse-gateway"
+  ),
+  "blueocean-git-pipeline" to setOf(
+    "blueocean-pipeline-api-impl",
+    "blueocean-pipeline-scm-api",
+    "git"
+  ),
+  "blueocean-github-pipeline" to setOf(
+    "blueocean-pipeline-api-impl",
+    "github-api",
+    "github-branch-source",
+    "jackson2-api",
+    "pubsub-light"
+  ),
+  "blueocean-i18n" to setOf(
+    "blueocean-rest"
+  ),
+  "blueocean-jira" to setOf(
+    "blueocean-rest",
+    "jira"
+  ),
+  "blueocean-jwt" to setOf(
+    "blueocean-commons",
+    "mailer"
+  ),
+  "blueocean-personalization" to setOf(
+    "blueocean-dashboard"
+  ),
+  "blueocean-pipeline-api-impl" to setOf(
+    "blueocean-pipeline-scm-api",
+    "blueocean-rest-impl",
+    "workflow-api",
+    "workflow-cps",
+    "workflow-durable-task-step",
+    "workflow-job",
+    "workflow-multibranch",
+    "workflow-step-api",
+    "workflow-support",
+    "branch-api",
+    "credentials",
+    "git",
+    "github-branch-source",
+    "htmlpublisher",
+    "pipeline-graph-analysis",
+    "pipeline-input-step",
+    "pipeline-stage-step",
+    "plain-credentials",
+    "scm-api",
+    "pipeline-model-definition"
+  ),
+  "blueocean-pipeline-editor" to setOf(
+    "blueocean-commons",
+    "blueocean-dashboard",
+    "blueocean-pipeline-api-impl",
+    "blueocean-rest",
+    "pipeline-model-definition"
+  ),
+  "blueocean-pipeline-scm-api" to setOf(
+    "blueocean-rest",
+    "workflow-multibranch",
+    "branch-api",
+    "credentials",
+    "pubsub-light"
+  ),
+  "blueocean-rest" to setOf(
+    "blueocean-commons"
+  ),
+  "blueocean-rest-impl" to setOf(
+    "blueocean-jwt",
+    "blueocean-rest",
+    "blueocean-web",
+    "cloudbees-folder",
+    "credentials",
+    "display-url-api",
+    "junit",
+    "mailer",
+    "favorite"
+  ),
+  "blueocean-web" to setOf(
+    "blueocean-core-js",
+    "blueocean-rest",
+    "jenkins-design-language",
+    "variant"
+  ),
   "bouncycastle-api" to setOf(),
-  "branch-api" to setOf("cloudbees-folder", "scm-api", "structs"),
-  "build-blocker-plugin" to setOf("matrix-project"),
-  "build-name-setter" to setOf("token-macro", "matrix-project"),
-  "build-timeout" to setOf("naginator", "token-macro"),
-  "cloudbees-bitbucket-branch-source" to setOf("display-url-api", "git", "mercurial", "scm-api", "structs"),
-  "cloudbees-folder" to setOf("credentials"),
-  "conditional-buildstep" to setOf("maven-plugin", "matrix-project", "run-condition", "token-macro"),
-  "config-file-provider" to setOf("cloudbees-folder", "credentials", "ssh-credentials", "structs", "token-macro"),
-  "copyartifact" to setOf("maven-plugin", "matrix-project", "structs"),
-  "credentials" to setOf("structs"),
-  "credentials-binding" to setOf("workflow-step-api", "credentials", "plain-credentials", "ssh-credentials", "structs"),
+  "branch-api" to setOf(
+    "cloudbees-folder",
+    "scm-api",
+    "structs"
+  ),
+  "build-timeout" to setOf(
+    "naginator",
+    "token-macro"
+  ),
+  "cloudbees-bitbucket-branch-source" to setOf(
+    "apache-httpcomponents-client-4-api",
+    "display-url-api",
+    "git",
+    "handy-uri-templates-2-api",
+    "mercurial",
+    "scm-api",
+    "structs"
+  ),
+  "cloudbees-folder" to setOf(
+    "credentials"
+  ),
+  "command-launcher" to setOf(
+    "script-security"
+  ),
+  "config-file-provider" to setOf(
+    "cloudbees-folder",
+    "credentials",
+    "ssh-credentials",
+    "structs",
+    "token-macro"
+  ),
+  "credentials" to setOf(
+    "structs"
+  ),
+  "credentials-binding" to setOf(
+    "workflow-step-api",
+    "credentials",
+    "plain-credentials",
+    "ssh-credentials",
+    "structs"
+  ),
   "display-url-api" to setOf(),
-  "docker-build-publish" to setOf("docker-commons", "token-macro"),
-  "docker-build-step" to setOf("credentials", "docker-commons"),
-  "docker-commons" to setOf("authentication-tokens", "credentials-binding", "credentials"),
-  "docker-custom-build-environment" to setOf("docker-commons", "maven-plugin", "dockerhub-notification"),
-  "docker-workflow" to setOf("workflow-cps", "workflow-durable-task-step", "docker-commons"),
+  "docker-commons" to setOf(
+    "authentication-tokens",
+    "credentials-binding",
+    "credentials"
+  ),
+  "docker-workflow" to setOf(
+    "workflow-cps",
+    "workflow-durable-task-step",
+    "docker-commons"
+  ),
   "durable-task" to setOf(),
-  "email-ext" to setOf("workflow-job", "workflow-step-api", "config-file-provider", "junit", "mailer", "matrix-project", "script-security", "structs", "token-macro", "analysis-core"),
-  "extended-choice-parameter" to setOf("jquery", "script-security"),
+  "email-ext" to setOf(
+    "workflow-job",
+    "workflow-step-api",
+    "config-file-provider",
+    "junit",
+    "mailer",
+    "matrix-project",
+    "script-security",
+    "structs",
+    "token-macro",
+    "analysis-core"
+  ),
   "external-monitor-job" to setOf(),
-  "favorite" to setOf("mailer", "matrix-project", "token-macro"),
-  "flexible-publish" to setOf("token-macro", "run-condition"),
-  "gatling" to setOf("workflow-job", "workflow-step-api", "workflow-cps"),
-  "git" to setOf("workflow-scm-step", "credentials", "git-client", "mailer", "matrix-project", "parameterized-trigger", "promoted-builds", "scm-api", "ssh-credentials", "structs", "token-macro"),
-  "git-client" to setOf("apache-httpcomponents-client-4-api", "credentials", "jsch", "ssh-credentials", "structs"),
-  "git-server" to setOf("git-client"),
-  "github" to setOf("credentials", "display-url-api", "git", "github-api", "plain-credentials", "scm-api", "structs", "token-macro"),
-  "github-api" to setOf("jackson2-api"),
-  "github-branch-source" to setOf("github", "credentials", "display-url-api", "git", "github-api", "scm-api", "structs"),
-  "github-organization-folder" to setOf("cloudbees-folder", "workflow-scm-step", "workflow-multibranch", "workflow-cps", "pipeline-github-lib", "workflow-step-api", "workflow-cps-global-lib", "github-branch-source", "workflow-job", "branch-api", "scm-api", "github"),
-  "greenballs" to setOf(),
+  "favorite" to setOf(
+    "mailer",
+    "matrix-project",
+    "token-macro"
+  ),
+  "git" to setOf(
+    "workflow-scm-step",
+    "credentials",
+    "git-client",
+    "mailer",
+    "matrix-project",
+    "parameterized-trigger",
+    "promoted-builds",
+    "scm-api",
+    "ssh-credentials",
+    "structs",
+    "token-macro"
+  ),
+  "git-client" to setOf(
+    "apache-httpcomponents-client-4-api",
+    "credentials",
+    "jsch",
+    "ssh-credentials",
+    "structs"
+  ),
+  "git-server" to setOf(
+    "git-client"
+  ),
+  "github" to setOf(
+    "credentials",
+    "display-url-api",
+    "git",
+    "github-api",
+    "plain-credentials",
+    "scm-api",
+    "structs",
+    "token-macro"
+  ),
+  "github-api" to setOf(
+    "jackson2-api"
+  ),
+  "github-branch-source" to setOf(
+    "github",
+    "credentials",
+    "display-url-api",
+    "git",
+    "github-api",
+    "scm-api",
+    "structs"
+  ),
   "handlebars" to setOf(),
-  "htmlpublisher" to setOf("workflow-step-api", "matrix-project"),
-  "icon-shim" to setOf(),
+  "handy-uri-templates-2-api" to setOf(),
+  "htmlpublisher" to setOf(
+    "workflow-step-api",
+    "matrix-project"
+  ),
   "jackson2-api" to setOf(),
-  "javadoc" to setOf(),
-  "jira" to setOf("p4", "workflow-job", "mailer", "perforce", "matrix-project", "branch-api", "workflow-step-api"),
-  "job-dsl" to setOf("structs", "script-security", "vsphere-cloud", "config-file-provider", "managed-scripts"),
-  "job-restrictions" to setOf(),
-  "jobConfigHistory" to setOf("maven-plugin"),
-  "jquery" to setOf(),
+  "jenkins-design-language" to setOf(),
+  "jira" to setOf(
+    "workflow-job",
+    "workflow-step-api",
+    "branch-api",
+    "junit",
+    "mailer",
+    "matrix-project",
+    "p4",
+    "script-security",
+    "structs",
+    "perforce"
+  ),
+  "job-dsl" to setOf(
+    "structs",
+    "script-security",
+    "vsphere-cloud",
+    "config-file-provider",
+    "managed-scripts"
+  ),
   "jquery-detached" to setOf(),
-  "jsch" to setOf("credentials", "ssh-credentials"),
-  "junit" to setOf("structs"),
-  "ldap" to setOf("mailer"),
-  "lockable-resources" to setOf("workflow-step-api", "mailer", "matrix-project", "script-security"),
-  "mailer" to setOf("display-url-api"),
-  "managed-scripts" to setOf("token-macro", "config-file-provider"),
+  "jsch" to setOf(
+    "ssh-credentials"
+  ),
+  "junit" to setOf(
+    "workflow-api",
+    "workflow-step-api",
+    "script-security",
+    "structs"
+  ),
+  "kubernetes" to setOf(
+    "workflow-step-api",
+    "durable-task",
+    "variant",
+    "kubernetes-credentials",
+    "pipeline-model-extensions"
+  ),
+  "kubernetes-credentials" to setOf(
+    "credentials",
+    "plain-credentials"
+  ),
+  "ldap" to setOf(
+    "mailer"
+  ),
+  "lockable-resources" to setOf(
+    "workflow-step-api",
+    "workflow-support",
+    "mailer",
+    "matrix-project",
+    "script-security"
+  ),
+  "mailer" to setOf(
+    "display-url-api"
+  ),
   "mapdb-api" to setOf(),
-  "matrix-auth" to setOf("cloudbees-folder"),
-  "matrix-project" to setOf("junit", "script-security"),
-  "maven-plugin" to setOf("apache-httpcomponents-client-4-api", "javadoc", "jsch", "junit", "mailer", "token-macro"),
-  "mercurial" to setOf("credentials", "jsch", "matrix-project", "multiple-scms", "scm-api", "ssh-credentials", "structs"),
-  "metrics" to setOf("jackson2-api"),
+  "matrix-auth" to setOf(
+    "cloudbees-folder"
+  ),
+  "matrix-project" to setOf(
+    "junit",
+    "script-security"
+  ),
+  "mercurial" to setOf(
+    "credentials",
+    "jsch",
+    "matrix-project",
+    "multiple-scms",
+    "scm-api",
+    "ssh-credentials",
+    "structs"
+  ),
   "momentjs" to setOf(),
-  "multiple-scms" to setOf(),
   "pam-auth" to setOf(),
-  "parameterized-trigger" to setOf("conditional-buildstep", "matrix-project", "promoted-builds", "script-security", "subversion"),
-  "pipeline-build-step" to setOf("workflow-step-api", "workflow-support", "workflow-api"),
-  "pipeline-github-lib" to setOf("workflow-cps-global-lib", "git"),
-  "pipeline-graph-analysis" to setOf("workflow-api", "workflow-cps", "workflow-job", "workflow-step-api", "workflow-support", "pipeline-input-step", "pipeline-stage-step", "structs"),
-  "pipeline-input-step" to setOf("workflow-api", "workflow-step-api", "workflow-support"),
-  "pipeline-milestone-step" to setOf("workflow-api", "workflow-step-api"),
-  "pipeline-model-api" to setOf("workflow-step-api", "structs"),
-  "pipeline-model-declarative-agent" to setOf("pipeline-model-extensions"),
-  "pipeline-model-definition" to setOf("workflow-api", "workflow-basic-steps", "workflow-cps-global-lib", "workflow-cps", "workflow-durable-task-step", "workflow-multibranch", "workflow-scm-step", "workflow-support", "credentials-binding", "credentials", "docker-workflow", "git-client", "mailer", "pipeline-stage-step", "scm-api", "pipeline-model-api", "pipeline-model-declarative-agent", "pipeline-model-extensions", "pipeline-stage-tags-metadata"),
-  "pipeline-model-extensions" to setOf("workflow-cps", "workflow-job", "pipeline-model-api"),
-  "pipeline-rest-api" to setOf("workflow-api", "workflow-job", "workflow-step-api", "workflow-support", "jackson2-api", "pipeline-graph-analysis", "pipeline-input-step", "pipeline-stage-step"),
-  "pipeline-stage-step" to setOf("workflow-step-api", "workflow-api"),
+  "pipeline-build-step" to setOf(
+    "workflow-api",
+    "workflow-step-api",
+    "workflow-support",
+    "script-security"
+  ),
+  "pipeline-github-lib" to setOf(
+    "workflow-cps-global-lib",
+    "git"
+  ),
+  "pipeline-graph-analysis" to setOf(
+    "workflow-api",
+    "workflow-cps",
+    "workflow-job",
+    "workflow-step-api",
+    "workflow-support",
+    "pipeline-input-step",
+    "pipeline-stage-step",
+    "structs"
+  ),
+  "pipeline-input-step" to setOf(
+    "workflow-api",
+    "workflow-step-api",
+    "workflow-support"
+  ),
+  "pipeline-milestone-step" to setOf(
+    "workflow-api",
+    "workflow-step-api"
+  ),
+  "pipeline-model-api" to setOf(
+    "workflow-step-api",
+    "structs"
+  ),
+  "pipeline-model-declarative-agent" to setOf(
+    "pipeline-model-extensions"
+  ),
+  "pipeline-model-definition" to setOf(
+    "workflow-api",
+    "workflow-basic-steps",
+    "workflow-cps-global-lib",
+    "workflow-cps",
+    "workflow-durable-task-step",
+    "workflow-multibranch",
+    "workflow-scm-step",
+    "workflow-support",
+    "credentials-binding",
+    "credentials",
+    "docker-workflow",
+    "git-client",
+    "mailer",
+    "pipeline-input-step",
+    "pipeline-stage-step",
+    "scm-api",
+    "pipeline-model-api",
+    "pipeline-model-declarative-agent",
+    "pipeline-model-extensions",
+    "pipeline-stage-tags-metadata"
+  ),
+  "pipeline-model-extensions" to setOf(
+    "workflow-cps",
+    "workflow-job",
+    "pipeline-model-api"
+  ),
+  "pipeline-rest-api" to setOf(
+    "workflow-api",
+    "workflow-job",
+    "workflow-step-api",
+    "workflow-support",
+    "jackson2-api",
+    "pipeline-graph-analysis",
+    "pipeline-input-step",
+    "pipeline-stage-step"
+  ),
+  "pipeline-stage-step" to setOf(
+    "workflow-api",
+    "workflow-step-api",
+    "scm-api",
+    "structs"
+  ),
   "pipeline-stage-tags-metadata" to setOf(),
-  "pipeline-stage-view" to setOf("pipeline-rest-api", "workflow-job", "handlebars", "jquery-detached", "momentjs"),
-  "pipeline-utility-steps" to setOf("workflow-cps", "script-security", "workflow-step-api"),
-  "plain-credentials" to setOf("credentials"),
-  "promoted-builds" to setOf("rebuild", "project-inheritance", "maven-plugin", "apache-httpcomponents-client-4-api", "job-dsl", "junit", "script-security", "token-macro"),
+  "pipeline-stage-view" to setOf(
+    "pipeline-rest-api",
+    "workflow-job",
+    "handlebars",
+    "jquery-detached",
+    "momentjs"
+  ),
+  "plain-credentials" to setOf(
+    "credentials"
+  ),
   "pubsub-light" to setOf(),
-  "python" to setOf(),
-  "rebuild" to setOf(),
   "resource-disposer" to setOf(),
-  "run-condition" to setOf("token-macro"),
-  "scm-api" to setOf("structs"),
+  "scm-api" to setOf(
+    "structs"
+  ),
   "script-security" to setOf(),
-  "sse-gateway" to setOf("pubsub-light"),
-  "ssh-agent" to setOf("workflow-step-api", "bouncycastle-api", "credentials", "ssh-credentials"),
-  "ssh-credentials" to setOf("credentials"),
-  "ssh-slaves" to setOf("ssh-credentials", "credentials"),
-  "stash-pullrequest-builder" to setOf("git", "credentials"),
+  "sse-gateway" to setOf(
+    "pubsub-light"
+  ),
+  "ssh-agent" to setOf(
+    "workflow-step-api",
+    "bouncycastle-api",
+    "credentials",
+    "ssh-credentials"
+  ),
+  "ssh-credentials" to setOf(
+    "credentials"
+  ),
+  "ssh-slaves" to setOf(
+    "credentials",
+    "ssh-credentials"
+  ),
   "structs" to setOf(),
-  "subversion" to setOf("workflow-scm-step", "credentials", "mapdb-api", "scm-api", "ssh-credentials"),
-  "throttle-concurrents" to setOf("workflow-api", "workflow-durable-task-step", "workflow-step-api", "workflow-support", "matrix-project"),
-  "timestamper" to setOf("workflow-step-api"),
-  "token-macro" to setOf("workflow-job", "workflow-step-api"),
+  "subversion" to setOf(
+    "workflow-scm-step",
+    "credentials",
+    "mapdb-api",
+    "scm-api",
+    "ssh-credentials"
+  ),
+  "timestamper" to setOf(
+    "workflow-step-api"
+  ),
+  "token-macro" to setOf(
+    "workflow-step-api"
+  ),
   "variant" to setOf(),
-  "windows-slaves" to setOf(),
-  "workflow-aggregator" to setOf("pipeline-input-step", "workflow-job", "workflow-basic-steps", "workflow-durable-task-step", "workflow-api", "workflow-cps", "workflow-support", "workflow-cps-global-lib", "workflow-multibranch", "pipeline-stage-view", "workflow-scm-step", "workflow-step-api", "pipeline-model-definition", "pipeline-stage-step", "pipeline-build-step", "pipeline-milestone-step"),
-  "workflow-api" to setOf("workflow-step-api", "scm-api", "structs"),
-  "workflow-basic-steps" to setOf("workflow-api", "workflow-step-api", "mailer", "structs"),
-  "workflow-cps" to setOf("workflow-api", "workflow-scm-step", "workflow-step-api", "workflow-support", "scm-api", "script-security", "structs", "support-core", "ace-editor", "jquery-detached"),
-  "workflow-cps-global-lib" to setOf("workflow-cps", "workflow-scm-step", "cloudbees-folder", "git-client", "git-server", "scm-api", "script-security"),
-  "workflow-durable-task-step" to setOf("workflow-api", "workflow-step-api", "workflow-support", "durable-task", "script-security", "structs"),
-  "workflow-job" to setOf("workflow-api", "workflow-step-api", "workflow-support"),
-  "workflow-multibranch" to setOf("workflow-api", "workflow-cps", "workflow-job", "workflow-scm-step", "workflow-step-api", "workflow-support", "branch-api", "cloudbees-folder", "scm-api", "script-security", "structs"),
-  "workflow-scm-step" to setOf("workflow-step-api"),
-  "workflow-step-api" to setOf("structs"),
-  "workflow-support" to setOf("workflow-api", "workflow-step-api", "scm-api", "script-security"),
-  "ws-cleanup" to setOf("workflow-durable-task-step", "matrix-project", "resource-disposer", "structs")
+  "workflow-aggregator" to setOf(
+    "pipeline-input-step",
+    "workflow-job",
+    "workflow-basic-steps",
+    "workflow-durable-task-step",
+    "workflow-api",
+    "workflow-cps",
+    "workflow-support",
+    "workflow-cps-global-lib",
+    "workflow-multibranch",
+    "pipeline-stage-view",
+    "workflow-scm-step",
+    "workflow-step-api",
+    "pipeline-model-definition",
+    "pipeline-stage-step",
+    "pipeline-build-step",
+    "pipeline-milestone-step"
+  ),
+  "workflow-api" to setOf(
+    "workflow-step-api",
+    "scm-api",
+    "structs"
+  ),
+  "workflow-basic-steps" to setOf(
+    "workflow-api",
+    "workflow-step-api",
+    "mailer",
+    "structs"
+  ),
+  "workflow-cps" to setOf(
+    "workflow-api",
+    "workflow-scm-step",
+    "workflow-step-api",
+    "workflow-support",
+    "scm-api",
+    "script-security",
+    "structs",
+    "support-core",
+    "ace-editor",
+    "jquery-detached"
+  ),
+  "workflow-cps-global-lib" to setOf(
+    "workflow-cps",
+    "workflow-scm-step",
+    "cloudbees-folder",
+    "git-client",
+    "git-server",
+    "scm-api",
+    "script-security"
+  ),
+  "workflow-durable-task-step" to setOf(
+    "workflow-api",
+    "workflow-step-api",
+    "workflow-support",
+    "durable-task",
+    "script-security",
+    "structs"
+  ),
+  "workflow-job" to setOf(
+    "workflow-api",
+    "workflow-step-api",
+    "workflow-support"
+  ),
+  "workflow-multibranch" to setOf(
+    "workflow-api",
+    "workflow-cps",
+    "workflow-job",
+    "workflow-scm-step",
+    "workflow-step-api",
+    "workflow-support",
+    "branch-api",
+    "cloudbees-folder",
+    "scm-api",
+    "script-security",
+    "structs"
+  ),
+  "workflow-scm-step" to setOf(
+    "workflow-step-api"
+  ),
+  "workflow-step-api" to setOf(
+    "structs"
+  ),
+  "workflow-support" to setOf(
+    "workflow-api",
+    "workflow-step-api",
+    "scm-api",
+    "script-security"
+  ),
+  "ws-cleanup" to setOf(
+    "workflow-durable-task-step",
+    "matrix-project",
+    "resource-disposer",
+    "structs"
+  )
 )

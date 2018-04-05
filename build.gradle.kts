@@ -30,7 +30,7 @@ allprojects {
   repositories {
     jcenter()
     maven {
-      setUrl("https://repo.jenkins-ci.org/releases")
+      setUrl("https://repo.jenkins-ci.org/public")
     }
   }
 }
