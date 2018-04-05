@@ -16,7 +16,7 @@ dependencies {
   }
 }
 
-configure<JavaPluginConvention> {
+java {
   sourceSets {
     "main" {
       java.setSrcDirs(emptyList<Any>())
