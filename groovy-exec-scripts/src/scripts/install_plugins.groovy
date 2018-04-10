@@ -97,6 +97,7 @@ final plugins = [
     'pipeline-stage-step',
     'pipeline-stage-tags-metadata',
     'pipeline-stage-view',
+    'pipeline-utility-steps',
     'plain-credentials',
     'pubsub-light',
     'resource-disposer',
