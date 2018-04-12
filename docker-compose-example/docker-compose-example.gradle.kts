@@ -73,6 +73,12 @@ tasks {
     commandLine("docker-compose", "up", "--build")
   }
 
+  "dockerComposeStop"(Exec::class) {
+    description = "Runs docker-compose stop"
+    group = composeGroup
+    commandLine("docker-compose", "stop")
+  }
+
   "dockerComposeDown"(Exec::class) {
     description = "Runs docker-compose down"
     group = composeGroup
