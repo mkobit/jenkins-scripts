@@ -30,3 +30,19 @@ java {
     }
   }
 }
+
+val groovyScriptSource by configurations.creating
+
+val synchronizeScripts by tasks.creating(Sync::class) {
+  val main by java.sourceSets.getting
+  val scriptFiles = files(main.allSource)
+    .filter { it.extension == "groovy" }
+  from(scriptFiles)
+  into(file("$buildDir/groovy-scripts"))
+}
+
+artifacts {
+  add(groovyScriptSource.name, synchronizeScripts.destinationDir) {
+    builtBy(synchronizeScripts)
+  }
+}

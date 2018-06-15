@@ -1,3 +1,4 @@
+import buildsrc.DependencyInfo
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -12,10 +13,6 @@ val jenkinsCoreLibraries: Map<String, String> by rootProject.extra
 val jenkinsPluginArtifacts: Map<String, String> by rootProject.extra
 val jenkinsPluginDependencies: Map<String, Set<String>> by rootProject.extra
 
-val junitPlatformVersion: String by rootProject.extra
-val junitTestImplementationArtifacts: Map<String, Map<String, String>> by rootProject.extra
-val junitTestRuntimeOnlyArtifacts: Map<String, Map<String, String>> by rootProject.extra
-
 repositories {
   mavenCentral()
 }
@@ -29,12 +26,12 @@ tasks.withType(KotlinCompile::class.java) {
 dependencies {
   testImplementation(kotlin("stdlib-jre8"))
   testImplementation(kotlin("reflect"))
-  testImplementation("org.assertj:assertj-core:3.9.1")
-  testImplementation("com.nhaarman:mockito-kotlin:1.5.0")
-  junitTestImplementationArtifacts.values.forEach {
+  testImplementation(DependencyInfo.assertJCore)
+  testImplementation(DependencyInfo.mockitoKotlin)
+  DependencyInfo.junitTestImplementationArtifacts.forEach {
     testImplementation(it)
   }
-  junitTestRuntimeOnlyArtifacts.values.forEach {
+  DependencyInfo.junitTestRuntimeOnlyArtifacts.forEach {
     testRuntimeOnly(it)
   }
   jenkinsTestDependencies.values.forEach {

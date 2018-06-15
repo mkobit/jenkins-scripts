@@ -2,7 +2,7 @@ extra["jenkinsGroovyVersion"] = "2.4.11"
 
 extra["jenkinsGroovyArtifact"] = "org.codehaus.groovy:groovy-all:${extra["jenkinsGroovyVersion"]}"
 
-extra["jenkinsCoreVersion"] = "2.107.2"
+extra["jenkinsCoreVersion"] = "2.121.1"
 
 extra["jenkinsCoreArtifact"] = "org.jenkins-ci.main:jenkins-core:${extra["jenkinsCoreVersion"]}@jar"
 
@@ -20,7 +20,7 @@ extra["jenkinsTestDependencies"] = mapOf(
 extra["jenkinsPluginArtifacts"] = mapOf(
   "ace-editor"                             to "org.jenkins-ci.ui:ace-editor:1.1",
   "antisamy-markup-formatter"              to "org.jenkins-ci.plugins:antisamy-markup-formatter:1.5",
-  "apache-httpcomponents-client-4-api"     to "org.jenkins-ci.plugins:apache-httpcomponents-client-4-api:4.5.3-2.1",
+  "apache-httpcomponents-client-4-api"     to "org.jenkins-ci.plugins:apache-httpcomponents-client-4-api:4.5.5-3.0",
   "authentication-tokens"                  to "org.jenkins-ci.plugins:authentication-tokens:1.3",
   "blueocean"                              to "io.jenkins.blueocean:blueocean:1.5.0",
   "blueocean-autofavorite"                 to "org.jenkins-ci.plugins:blueocean-autofavorite:1.2.2",
@@ -43,39 +43,40 @@ extra["jenkinsPluginArtifacts"] = mapOf(
   "blueocean-rest"                         to "io.jenkins.blueocean:blueocean-rest:1.5.0",
   "blueocean-rest-impl"                    to "io.jenkins.blueocean:blueocean-rest-impl:1.5.0",
   "blueocean-web"                          to "io.jenkins.blueocean:blueocean-web:1.5.0",
-  "bouncycastle-api"                       to "org.jenkins-ci.plugins:bouncycastle-api:2.16.2",
-  "branch-api"                             to "org.jenkins-ci.plugins:branch-api:2.0.19",
+  "bouncycastle-api"                       to "org.jenkins-ci.plugins:bouncycastle-api:2.16.3",
+  "branch-api"                             to "org.jenkins-ci.plugins:branch-api:2.0.20",
   "build-timeout"                          to "org.jenkins-ci.plugins:build-timeout:1.19",
-  "cloudbees-bitbucket-branch-source"      to "org.jenkins-ci.plugins:cloudbees-bitbucket-branch-source:2.2.10",
+  "cloudbees-bitbucket-branch-source"      to "org.jenkins-ci.plugins:cloudbees-bitbucket-branch-source:2.2.11",
   "cloudbees-folder"                       to "org.jenkins-ci.plugins:cloudbees-folder:6.4",
   "command-launcher"                       to "org.jenkins-ci.plugins:command-launcher:1.2",
   "config-file-provider"                   to "org.jenkins-ci.plugins:config-file-provider:2.18",
   "credentials"                            to "org.jenkins-ci.plugins:credentials:2.1.16",
   "credentials-binding"                    to "org.jenkins-ci.plugins:credentials-binding:1.16",
   "display-url-api"                        to "org.jenkins-ci.plugins:display-url-api:2.2.0",
-  "docker-commons"                         to "org.jenkins-ci.plugins:docker-commons:1.11",
-  "docker-workflow"                        to "org.jenkins-ci.plugins:docker-workflow:1.15.1",
+  "docker-commons"                         to "org.jenkins-ci.plugins:docker-commons:1.13",
+  "docker-workflow"                        to "org.jenkins-ci.plugins:docker-workflow:1.17",
   "durable-task"                           to "org.jenkins-ci.plugins:durable-task:1.22",
   "email-ext"                              to "org.jenkins-ci.plugins:email-ext:2.62",
   "external-monitor-job"                   to "org.jenkins-ci.plugins:external-monitor-job:1.7",
-  "favorite"                               to "org.jvnet.hudson.plugins:favorite:2.3.1",
-  "git"                                    to "org.jenkins-ci.plugins:git:3.8.0",
-  "git-client"                             to "org.jenkins-ci.plugins:git-client:2.7.1",
+  "favorite"                               to "org.jvnet.hudson.plugins:favorite:2.3.2",
+  "git"                                    to "org.jenkins-ci.plugins:git:3.9.1",
+  "git-client"                             to "org.jenkins-ci.plugins:git-client:2.7.2",
   "git-server"                             to "org.jenkins-ci.plugins:git-server:1.7",
-  "github"                                 to "com.coravy.hudson.plugins.github:github:1.29.0",
-  "github-api"                             to "org.jenkins-ci.plugins:github-api:1.90",
-  "github-branch-source"                   to "org.jenkins-ci.plugins:github-branch-source:2.3.3",
+  "github"                                 to "com.coravy.hudson.plugins.github:github:1.29.1",
+  "github-api"                             to "org.jenkins-ci.plugins:github-api:1.92",
+  "github-branch-source"                   to "org.jenkins-ci.plugins:github-branch-source:2.3.6",
   "handlebars"                             to "org.jenkins-ci.ui:handlebars:1.1.1",
   "handy-uri-templates-2-api"              to "org.jenkins-ci.plugins:handy-uri-templates-2-api:2.1.6-1.0",
   "htmlpublisher"                          to "org.jenkins-ci.plugins:htmlpublisher:1.16",
-  "jackson2-api"                           to "org.jenkins-ci.plugins:jackson2-api:2.8.11.1",
+  "jackson2-api"                           to "org.jenkins-ci.plugins:jackson2-api:2.8.11.3",
+  "jdk-tool"                               to "org.jenkins-ci.plugins:jdk-tool:1.1",
   "jenkins-design-language"                to "io.jenkins.blueocean:jenkins-design-language:1.5.0",
-  "jira"                                   to "org.jenkins-ci.plugins:jira:2.5",
+  "jira"                                   to "org.jenkins-ci.plugins:jira:3.0.0",
   "job-dsl"                                to "org.jenkins-ci.plugins:job-dsl:1.69",
   "jquery-detached"                        to "org.jenkins-ci.ui:jquery-detached:1.2.1",
   "jsch"                                   to "org.jenkins-ci.plugins:jsch:0.1.54.2",
   "junit"                                  to "org.jenkins-ci.plugins:junit:1.24",
-  "kubernetes"                             to "org.csanchez.jenkins.plugins:kubernetes:1.5.2",
+  "kubernetes"                             to "org.csanchez.jenkins.plugins:kubernetes:1.8.1",
   "kubernetes-credentials"                 to "org.jenkinsci.plugins:kubernetes-credentials:0.3.1",
   "ldap"                                   to "org.jenkins-ci.plugins:ldap:1.20",
   "lockable-resources"                     to "org.6wind.jenkins:lockable-resources:2.2",
@@ -91,39 +92,39 @@ extra["jenkinsPluginArtifacts"] = mapOf(
   "pipeline-graph-analysis"                to "org.jenkins-ci.plugins:pipeline-graph-analysis:1.6",
   "pipeline-input-step"                    to "org.jenkins-ci.plugins:pipeline-input-step:2.8",
   "pipeline-milestone-step"                to "org.jenkins-ci.plugins:pipeline-milestone-step:1.3.1",
-  "pipeline-model-api"                     to "org.jenkinsci.plugins:pipeline-model-api:1.2.8",
+  "pipeline-model-api"                     to "org.jenkinsci.plugins:pipeline-model-api:1.3",
   "pipeline-model-declarative-agent"       to "org.jenkinsci.plugins:pipeline-model-declarative-agent:1.1.1",
-  "pipeline-model-definition"              to "org.jenkinsci.plugins:pipeline-model-definition:1.2.8",
-  "pipeline-model-extensions"              to "org.jenkinsci.plugins:pipeline-model-extensions:1.2.8",
+  "pipeline-model-definition"              to "org.jenkinsci.plugins:pipeline-model-definition:1.3",
+  "pipeline-model-extensions"              to "org.jenkinsci.plugins:pipeline-model-extensions:1.3",
   "pipeline-rest-api"                      to "org.jenkins-ci.plugins.pipeline-stage-view:pipeline-rest-api:2.10",
   "pipeline-stage-step"                    to "org.jenkins-ci.plugins:pipeline-stage-step:2.3",
-  "pipeline-stage-tags-metadata"           to "org.jenkinsci.plugins:pipeline-stage-tags-metadata:1.2.8",
+  "pipeline-stage-tags-metadata"           to "org.jenkinsci.plugins:pipeline-stage-tags-metadata:1.3",
   "pipeline-stage-view"                    to "org.jenkins-ci.plugins.pipeline-stage-view:pipeline-stage-view:2.10",
-  "pipeline-utility-steps"                 to "org.jenkins-ci.plugins:pipeline-utility-steps:2.0.2",
+  "pipeline-utility-steps"                 to "org.jenkins-ci.plugins:pipeline-utility-steps:2.1.0",
   "plain-credentials"                      to "org.jenkins-ci.plugins:plain-credentials:1.4",
   "pubsub-light"                           to "org.jenkins-ci.plugins:pubsub-light:1.12",
   "resource-disposer"                      to "org.jenkins-ci.plugins:resource-disposer:0.8",
-  "scm-api"                                to "org.jenkins-ci.plugins:scm-api:2.2.6",
-  "script-security"                        to "org.jenkins-ci.plugins:script-security:1.43",
+  "scm-api"                                to "org.jenkins-ci.plugins:scm-api:2.2.7",
+  "script-security"                        to "org.jenkins-ci.plugins:script-security:1.44",
   "sse-gateway"                            to "org.jenkins-ci.plugins:sse-gateway:1.15",
   "ssh-agent"                              to "org.jenkins-ci.plugins:ssh-agent:1.15",
   "ssh-credentials"                        to "org.jenkins-ci.plugins:ssh-credentials:1.13",
   "ssh-slaves"                             to "org.jenkins-ci.plugins:ssh-slaves:1.26",
   "structs"                                to "org.jenkins-ci.plugins:structs:1.14",
-  "subversion"                             to "org.jenkins-ci.plugins:subversion:2.10.5",
-  "timestamper"                            to "org.jenkins-ci.plugins:timestamper:1.8.9",
+  "subversion"                             to "org.jenkins-ci.plugins:subversion:2.11.0",
+  "timestamper"                            to "org.jenkins-ci.plugins:timestamper:1.8.10",
   "token-macro"                            to "org.jenkins-ci.plugins:token-macro:2.5",
   "variant"                                to "org.jenkins-ci.plugins:variant:1.1",
   "workflow-aggregator"                    to "org.jenkins-ci.plugins.workflow:workflow-aggregator:2.5",
-  "workflow-api"                           to "org.jenkins-ci.plugins.workflow:workflow-api:2.27",
-  "workflow-basic-steps"                   to "org.jenkins-ci.plugins.workflow:workflow-basic-steps:2.6",
-  "workflow-cps"                           to "org.jenkins-ci.plugins.workflow:workflow-cps:2.48",
+  "workflow-api"                           to "org.jenkins-ci.plugins.workflow:workflow-api:2.28",
+  "workflow-basic-steps"                   to "org.jenkins-ci.plugins.workflow:workflow-basic-steps:2.7",
+  "workflow-cps"                           to "org.jenkins-ci.plugins.workflow:workflow-cps:2.53",
   "workflow-cps-global-lib"                to "org.jenkins-ci.plugins.workflow:workflow-cps-global-lib:2.9",
   "workflow-durable-task-step"             to "org.jenkins-ci.plugins.workflow:workflow-durable-task-step:2.19",
-  "workflow-job"                           to "org.jenkins-ci.plugins.workflow:workflow-job:2.19",
-  "workflow-multibranch"                   to "org.jenkins-ci.plugins.workflow:workflow-multibranch:2.17",
+  "workflow-job"                           to "org.jenkins-ci.plugins.workflow:workflow-job:2.21",
+  "workflow-multibranch"                   to "org.jenkins-ci.plugins.workflow:workflow-multibranch:2.19",
   "workflow-scm-step"                      to "org.jenkins-ci.plugins.workflow:workflow-scm-step:2.6",
-  "workflow-step-api"                      to "org.jenkins-ci.plugins.workflow:workflow-step-api:2.14",
+  "workflow-step-api"                      to "org.jenkins-ci.plugins.workflow:workflow-step-api:2.15",
   "workflow-support"                       to "org.jenkins-ci.plugins.workflow:workflow-support:2.18",
   "ws-cleanup"                             to "org.jenkins-ci.plugins:ws-cleanup:0.34"
 )
@@ -332,9 +333,14 @@ extra["jenkinsPluginDependencies"] = mapOf(
     "credentials"
   ),
   "docker-workflow" to setOf(
+    "workflow-api",
+    "workflow-basic-steps",
     "workflow-cps",
     "workflow-durable-task-step",
-    "docker-commons"
+    "workflow-step-api",
+    "workflow-support",
+    "docker-commons",
+    "script-security"
   ),
   "durable-task" to setOf(),
   "email-ext" to setOf(
@@ -357,6 +363,7 @@ extra["jenkinsPluginDependencies"] = mapOf(
   ),
   "git" to setOf(
     "workflow-scm-step",
+    "workflow-step-api",
     "credentials",
     "git-client",
     "mailer",
@@ -407,11 +414,14 @@ extra["jenkinsPluginDependencies"] = mapOf(
     "matrix-project"
   ),
   "jackson2-api" to setOf(),
+  "jdk-tool" to setOf(),
   "jenkins-design-language" to setOf(),
   "jira" to setOf(
     "workflow-job",
     "workflow-step-api",
+    "apache-httpcomponents-client-4-api",
     "branch-api",
+    "jackson2-api",
     "junit",
     "mailer",
     "matrix-project",
@@ -439,7 +449,9 @@ extra["jenkinsPluginDependencies"] = mapOf(
   ),
   "kubernetes" to setOf(
     "workflow-step-api",
+    "apache-httpcomponents-client-4-api",
     "durable-task",
+    "jackson2-api",
     "variant",
     "kubernetes-credentials",
     "pipeline-model-extensions"
@@ -561,7 +573,9 @@ extra["jenkinsPluginDependencies"] = mapOf(
     "scm-api",
     "structs"
   ),
-  "pipeline-stage-tags-metadata" to setOf(),
+  "pipeline-stage-tags-metadata" to setOf(
+    "workflow-api"
+  ),
   "pipeline-stage-view" to setOf(
     "pipeline-rest-api",
     "workflow-job",
@@ -608,7 +622,8 @@ extra["jenkinsPluginDependencies"] = mapOf(
     "credentials",
     "mapdb-api",
     "scm-api",
-    "ssh-credentials"
+    "ssh-credentials",
+    "structs"
   ),
   "timestamper" to setOf(
     "workflow-step-api"

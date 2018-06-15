@@ -2,14 +2,12 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.gradle.api.internal.HasConvention
 
 plugins {
-  id("com.github.ben-manes.versions") version "0.17.0"
-  kotlin("jvm") version "1.2.41" apply false
+  id("com.github.ben-manes.versions") version "0.18.0"
+  kotlin("jvm") version "1.2.50" apply false
 }
 
 apply {
   from("gradle/jenkinsDependencies.gradle.kts")
-  from("gradle/dependencyUpdatesResolutionStrategy.gradle")
-  from("gradle/junit5.gradle.kts")
 }
 
 group = "com.mkobit.jenkins"
@@ -18,11 +16,21 @@ description = "Scripts to be used with the automation and configuration of Jenki
 
 tasks {
   "wrapper"(Wrapper::class) {
-    gradleVersion = "4.7"
+    gradleVersion = "4.8"
   }
   "dependencyUpdates"(DependencyUpdatesTask::class) {
-    val dependencyUpdatesResolutionStrategy: groovy.lang.Closure<Any?> by project.extra
-    resolutionStrategy = dependencyUpdatesResolutionStrategy
+    resolutionStrategy {
+      componentSelection {
+        all {
+          val rejected = listOf("alpha", "beta", "rc", "cr", "m")
+            .map { qualifier -> Regex("(?i).*[.-]$qualifier[.\\d-]*") }
+            .any { it.matches(candidate.version) }
+          if (rejected) {
+            reject("Release candidate")
+          }
+        }
+      }
+    }
   }
 }
 
