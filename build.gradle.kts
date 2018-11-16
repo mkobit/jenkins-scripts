@@ -16,7 +16,7 @@ description = "Scripts to be used with the automation and configuration of Jenki
 
 tasks {
   "wrapper"(Wrapper::class) {
-    gradleVersion = "4.8"
+    gradleVersion = "5.0-rc-3"
   }
   "dependencyUpdates"(DependencyUpdatesTask::class) {
     resolutionStrategy {

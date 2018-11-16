@@ -13,12 +13,12 @@ val jenkinsCoreVersion: String by rootProject.extra
 tasks {
   val composeGroup = "Docker Compose Example"
 
-  val syncScripts by creating(Sync::class) {
+  val syncScripts by registering(Sync::class) {
     from(groovyInitScripts)
     into("$buildDir/init.groovy.d")
   }
 
-  val dockerComposeBuild by creating(Exec::class) {
+  val dockerComposeBuild by registering(Exec::class) {
     description = "Builds Docker images for example"
     group = composeGroup
     inputs.files(syncScripts)
@@ -29,20 +29,20 @@ tasks {
     }
   }
 
-  "dockerComposeUp"(Exec::class) {
+  register("dockerComposeUp", Exec::class) {
     dependsOn(dockerComposeBuild)
     description = "Runs docker-compose up"
     group = composeGroup
     commandLine("docker-compose", "up")
   }
 
-  "dockerComposeStop"(Exec::class) {
+  register("dockerComposeStop", Exec::class) {
     description = "Runs docker-compose stop"
     group = composeGroup
     commandLine("docker-compose", "stop")
   }
 
-  "dockerComposeDown"(Exec::class) {
+  register("dockerComposeDown", Exec::class) {
     description = "Runs docker-compose down"
     group = composeGroup
     commandLine("docker-compose", "down")

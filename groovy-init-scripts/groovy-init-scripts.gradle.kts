@@ -15,26 +15,25 @@ dependencies {
     compileOnly(dependency)
   }
 }
-
-java {
-  sourceSets {
-    "main" {
-      java.setSrcDirs(emptyList<Any>())
-      resources.setSrcDirs(listOf("src/init.groovy.d"))
-      groovy.setSrcDirs(emptyList<Any>())
-    }
-    "test" {
-      java.setSrcDirs(emptyList<Any>())
-      resources.setSrcDirs(emptyList<Any>())
-      groovy.setSrcDirs(emptyList<Any>())
-    }
+/*
+sourceSets {
+  "main" {
+    java.setSrcDirs(emptyList<Any>())
+    resources.setSrcDirs(listOf("src/init.groovy.d"))
+    groovy.setSrcDirs(emptyList<Any>())
+  }
+  "test" {
+    java.setSrcDirs(emptyList<Any>())
+    resources.setSrcDirs(emptyList<Any>())
+    groovy.setSrcDirs(emptyList<Any>())
   }
 }
+*/
 
 val groovyScriptSource by configurations.creating
 
 val synchronizeScripts by tasks.creating(Sync::class) {
-  val main by java.sourceSets.getting
+  val main by sourceSets.getting
   val scriptFiles = files(main.allSource)
     .filter { it.extension == "groovy" }
   from(scriptFiles)
