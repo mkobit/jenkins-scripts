@@ -15,20 +15,18 @@ dependencies {
     compileOnly(dependency)
   }
 }
-/*
 sourceSets {
-  "main" {
+  main {
     java.setSrcDirs(emptyList<Any>())
     resources.setSrcDirs(listOf("src/init.groovy.d"))
     groovy.setSrcDirs(emptyList<Any>())
   }
-  "test" {
+  test {
     java.setSrcDirs(emptyList<Any>())
     resources.setSrcDirs(emptyList<Any>())
     groovy.setSrcDirs(emptyList<Any>())
   }
 }
-*/
 
 val groovyScriptSource by configurations.creating
 
@@ -40,8 +38,6 @@ val synchronizeScripts by tasks.creating(Sync::class) {
   into(file("$buildDir/groovy-scripts"))
 }
 
-artifacts {
-  add(groovyScriptSource.name, synchronizeScripts.destinationDir) {
-    builtBy(synchronizeScripts)
-  }
+groovyScriptSource.outgoing.artifact(synchronizeScripts.destinationDir) {
+  builtBy(synchronizeScripts)
 }

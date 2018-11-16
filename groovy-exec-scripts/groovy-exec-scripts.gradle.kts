@@ -16,17 +16,15 @@ dependencies {
   }
 }
 
-/*
 sourceSets {
-  "main" {
+  main {
     java.setSrcDirs(emptyList<Any>())
     resources.setSrcDirs(listOf("src/scripts"))
     groovy.setSrcDirs(emptyList<Any>())
   }
-  "test" {
+  test {
     java.setSrcDirs(emptyList<Any>())
     resources.setSrcDirs(emptyList<Any>())
     groovy.setSrcDirs(emptyList<Any>())
   }
 }
-*/

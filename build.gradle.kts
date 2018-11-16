@@ -18,7 +18,7 @@ tasks {
   "wrapper"(Wrapper::class) {
     gradleVersion = "5.0-rc-3"
   }
-  "dependencyUpdates"(DependencyUpdatesTask::class) {
+  dependencyUpdates {
     resolutionStrategy {
       componentSelection {
         all {
