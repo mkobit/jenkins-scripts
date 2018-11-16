@@ -67,13 +67,13 @@ final String extJenkinsCoreArtifact = '''extra["jenkinsCoreArtifact"] = "org.jen
 final String extJenkinsGroovyArtifact = '''extra["jenkinsGroovyArtifact"] = "org.codehaus.groovy:groovy-all:${extra["jenkinsGroovyVersion"]}"'''
 
 final String extJenkinsCoreLibraries = '''extra["jenkinsCoreLibraries"] = mapOf(
-  "instance-identity" to "org.jenkins-ci.modules:instance-identity:2.1",
+  "instance-identity" to "org.jenkins-ci.modules:instance-identity:2.2",
   "ssh-cli-auth" to "org.jenkins-ci.modules:ssh-cli-auth:1.4",
   "sshd" to "org.jenkins-ci.modules:sshd:2.4"
 )'''
 
 final String extJenkinsTestDependencies = '''extra["jenkinsTestDependencies"] = mapOf(
-  "jenkins-test-harness" to "org.jenkins-ci.main:jenkins-test-harness:2.24",
+  "jenkins-test-harness" to "org.jenkins-ci.main:jenkins-test-harness:2.44",
   "jenkins-war" to "org.jenkins-ci.main:jenkins-war:${extra["jenkinsCoreVersion"]}@war"
 )'''
 

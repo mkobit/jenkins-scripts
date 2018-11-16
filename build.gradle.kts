@@ -1,9 +1,8 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-import org.gradle.api.internal.HasConvention
 
 plugins {
-  id("com.github.ben-manes.versions") version "0.18.0"
-  kotlin("jvm") version "1.2.50" apply false
+  id("com.github.ben-manes.versions") version "0.20.0"
+  kotlin("jvm") version "1.3.10" apply false
 }
 
 apply {
@@ -16,9 +15,9 @@ description = "Scripts to be used with the automation and configuration of Jenki
 
 tasks {
   "wrapper"(Wrapper::class) {
-    gradleVersion = "4.8"
+    gradleVersion = "5.0-rc-3"
   }
-  "dependencyUpdates"(DependencyUpdatesTask::class) {
+  dependencyUpdates {
     resolutionStrategy {
       componentSelection {
         all {

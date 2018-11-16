@@ -2,15 +2,15 @@ package buildsrc
 
 @Suppress("UNUSED", "MemberVisibilityCanBePrivate")
 object DependencyInfo {
-  const val junitPlatformVersion = "1.2.0"
-  const val junitJupiterVersion = "5.2.0"
-  const val junit5Log4jVersion = "2.11.0"
+  const val junitPlatformVersion = "1.3.1"
+  const val junitJupiterVersion = "5.3.1"
+  const val junit5Log4jVersion = "2.11.1"
   const val kotlinLoggingVersion = "1.5.4"
   const val slf4jVersion = "1.7.25"
 
-  const val assertJCore = "org.assertj:assertj-core:3.10.0"
-  const val mockito = "org.mockito:mockito-core:2.18.3"
-  const val mockitoKotlin = "com.nhaarman:mockito-kotlin:1.5.0"
+  const val assertJCore = "org.assertj:assertj-core:3.11.1"
+  const val mockito = "org.mockito:mockito-core:2.23.0"
+  const val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0"
   val junitPlatformRunner = junitPlatform("runner")
   val junitJupiterApi = junitJupiter("api")
   val junitJupiterEngine = junitJupiter("engine")
