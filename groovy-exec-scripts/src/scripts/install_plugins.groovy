@@ -6,15 +6,16 @@ import java.util.logging.Logger
 import jenkins.model.Jenkins
 
 // Example list of plugins by Id to install
-//
-// println('[')
-// Jenkins.instance.pluginManager.activePlugins.collect {
-//   it.shortName
-// }.sort().each {
-//   print('  ')
-//   println("'$it',")
-// }
-// println(']')
+/*
+  println('[')
+  Jenkins.instance.pluginManager.activePlugins.collect {
+    it.shortName
+  }.sort().each {
+    print('  ')
+    println("'$it',")
+  }
+  println(']')
+*/
 final plugins = [
     'ace-editor',
     'antisamy-markup-formatter',
@@ -67,6 +68,7 @@ final plugins = [
     'handy-uri-templates-2-api',
     'htmlpublisher',
     'jackson2-api',
+    'jdk-tool',
     'jenkins-design-language',
     'jira',
     'job-dsl',
