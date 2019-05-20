@@ -1,8 +1,9 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
-  id("com.github.ben-manes.versions") version "0.20.0"
-  kotlin("jvm") version "1.3.10" apply false
+  id("com.github.ben-manes.versions") version "0.21.0"
+  kotlin("jvm") version "1.3.31" apply false
+  id("nebula.release") version "10.1.1"
 }
 
 apply {
@@ -10,12 +11,11 @@ apply {
 }
 
 group = "com.mkobit.jenkins"
-version = "0.1.0"
 description = "Scripts to be used with the automation and configuration of Jenkins"
 
 tasks {
   "wrapper"(Wrapper::class) {
-    gradleVersion = "5.0-rc-3"
+    gradleVersion = "5.4.1"
   }
   dependencyUpdates {
     resolutionStrategy {
@@ -45,8 +45,8 @@ allprojects {
 subprojects {
   pluginManager.withPlugin("java") {
     configure<JavaPluginConvention> {
-      sourceCompatibility = JavaVersion.VERSION_1_9
-      targetCompatibility = JavaVersion.VERSION_1_9
+      sourceCompatibility = JavaVersion.VERSION_11
+      targetCompatibility = JavaVersion.VERSION_11
     }
   }
 }

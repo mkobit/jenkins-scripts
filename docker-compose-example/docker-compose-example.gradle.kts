@@ -48,7 +48,7 @@ tasks {
     commandLine("docker-compose", "down")
   }
 
-  "build" {
+  build {
     dependsOn(dockerComposeBuild)
   }
 }

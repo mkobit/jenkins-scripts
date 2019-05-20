@@ -3,8 +3,7 @@ rootProject.name = "jenkins-scripts"
 include(
   "docker-compose-example",
   "groovy-exec-scripts",
-  "groovy-init-scripts",
-  "functional-tests"
+  "groovy-init-scripts"
 )
 
 rootProject.children.forEach { project ->
